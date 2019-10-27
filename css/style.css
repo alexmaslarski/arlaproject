@@ -270,39 +270,53 @@ main {
 
 /* styling for navigation in the profile */
 
-.profile-nav {
+#profile-nav {
     display: flex;
+
     margin-top: 1em;
-    justify-content: space-around;
-    background-color: white;
-    padding: .3em;
-
-}
-
-.profile-nav>div {
-    display: flex;
-}
-
-.profile-nav>div>h2 {
-    padding-left: 2em;
-}
-
-.profile-nav>div>img {
-    width: 8%;
-
-}
-
-.profile-nav>div>h2 {
-    font-size: 1em;
+    justify-content: center;
+    align-items: baseline;
     text-align: center;
+    background-color: white;
+    width: 100%;
+
+
+
 }
 
-.profile-nav>div {
-    width: 30%;
-    border-right: 1px solid black;
+#profile-nav a:hover {
+  background-color: #e5e5e5;
+  border-bottom: 5px solid #e5e5e5;
 }
 
-.settings {
+.activeNav {
+  background-color: #e5e5e5;
+  border-bottom: 5px solid #006C3A;
+  height: 100%;
+  padding: 0;
+
+}
+
+#profile-nav a {
+  text-decoration: none;
+  color: #000;
+  padding: 10px;
+  width: 33.33%;
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+#profile-nav h2 {
+  margin-left: 25%;
+}
+
+#profile-nav img {
+    max-width: 10%;
+
+}
+
+#settings {
     border-right: none !important;
 }
 

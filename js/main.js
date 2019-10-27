@@ -34,10 +34,11 @@ function setActiveTab(pageId) {
       } else {
         page.classList.remove("active");
       }
-  
+
     }
   }
 
+/*
 let showLoader = (duration) => {
     $("#splash").show();
     setTimeout(function () {
@@ -47,12 +48,11 @@ let showLoader = (duration) => {
 setTimeout(() => {
     $("#splash").hide();
 }, 1500);
-
+*/
 
 var acc = document.getElementsByClassName("category");
-var i;
 
-for (i = 0; i < acc.length; i++) {
+for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
     // this.classList.toggle("active");
     var panel = this.nextElementSibling;
@@ -63,3 +63,44 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+
+//SPA for the navigation inside the profile page
+let hideAllNavPages = () => {
+    let pages = document.querySelectorAll(".profileNavPage");
+    for (let page of pages) {
+        page.style.display = "none";
+    }
+}
+// show page or tab
+let showNavPage = pageId => {
+    hideAllNavPages();
+    document.querySelector(`#${pageId}`).style.display = "block";
+    location.href = `#${pageId}`;
+    setActiveTabNav(pageId);
+    // showLoader(500);
+}
+// set default page
+let setDefaultNavPage = () => {
+    let page = 'previousReports';
+    if (location.hash) {
+        page = location.hash.slice(1);
+    }
+    showNavPage(page);
+}
+setDefaultNavPage();
+
+function setActiveTabNav(pageId) {
+    let pages = document.querySelectorAll("#profile-nav a");
+    for (let page of pages) {
+      if (`#${pageId}` === page.getAttribute("href")) {
+        page.classList.add("activeNav");
+
+      } else {
+        page.classList.remove("activeNav");
+      }
+
+    }
+  }
+
+  hideAllNavPages();
