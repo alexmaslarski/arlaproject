@@ -345,7 +345,7 @@ main {
     padding-top: 50px;
 }
 
-#report-body>ul li {
+#report-body>form>ul li {
     margin-bottom: 10px;
 }
 
@@ -415,4 +415,28 @@ main {
 }
 .question>input{
     width: 100px;
+}
+.compared{
+    text-align: center;
+}
+.compared p{
+    line-height: 0;
+    font-size: .6em;
+}
+.button{
+    color: white;
+    background-color: green;
+    padding: 10px;
+    width: fit-content;
+    text-align: center;
+    cursor: pointer;
+}
+#save-changes{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+#submit{
+    background-color: gray;
+    margin: 10px auto;
 }
