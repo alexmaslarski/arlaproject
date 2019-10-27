@@ -1,0 +1,404 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Arla";
+    src: url("fonts/ArlaIF_W_Rg.woff");
+}
+
+@font-face {
+    font-family: "Arla";
+    src: url("fonts/ArlaIF_W_Th.woff");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Arla";
+    src: url("fonts/ArlaIF_W_Lt.woff");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Arla";
+    src: url("fonts/ArlaIF_W_Bd.woff");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Arla";
+    src: url("fonts/ArlaIF_W_Blk.woff");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Arla";
+    src: url("fonts/ArlaIF_W_It.woff");
+    font-style: italic, oblique;
+}
+
+body {
+    font-family: 'Arla', sans-serif;
+    font-weight: 400;
+    color: #434343;
+    font-size: 20px;
+    line-height: 1.6;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+#nav-container {
+    position: fixed;
+    width: 90px;
+    height: 100%;
+    text-align: center;
+    background-color: white;
+    box-shadow: 3px 0 5px 0px rgba(0, 0, 0, 0.3);
+
+}
+
+.logo {
+    display: block;
+    padding: 30px 0;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+}
+
+.logo img {
+    width: 60px;
+}
+
+.main-nav {
+    padding-top: 100px;
+    height: 100%;
+}
+
+.main-nav>.nav-item {
+    margin-bottom: 1px;
+}
+
+.main-nav>.nav-item>a {
+    font-size: .6em;
+}
+
+.main-nav .nav-link {
+    display: block;
+    padding: 15px 5px;
+    width: 100%;
+    color: #004719;
+    line-height: 1em;
+    z-index: 0;
+}
+
+.main-nav .nav-link .icon {
+    display: block;
+    margin: 0 auto 5px auto;
+    width: auto;
+    height: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+main {
+    width: 100%;
+    padding: 0 0 0 90px;
+}
+
+.page {
+    min-height: 100vh;
+    background-color: white;
+}
+
+#profile-page {
+    background-color: #f0f0f0;
+}
+
+#profile-header {
+    height: 250px;
+    display: flex;
+    width: 100%;
+}
+
+#profile-personal-info {
+    width: 25%;
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#profile-personal-info ul {
+    margin: 0 auto;
+}
+
+#profile-sust-score {
+    background-color: #DAEFD4;
+    width: 75%;
+}
+
+#profile-sust-score h3 {
+    text-align: center;
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#total-score-element {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#total-score-element img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+#total-score-element h2 {
+    font-size: 1em;
+    color: #137749;
+    font-weight: 300;
+}
+
+#total-score-element p {
+    font-size: .6em;
+    color: #869382;
+}
+
+#total-score-element>.total-score {
+    font-size: 1em;
+    color: black;
+}
+
+.score-element {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+}
+
+.score-icon {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.score-icon img {
+    width: 100%;
+}
+
+.score-text {
+    text-align: left;
+}
+
+.score-text h2 {
+    font-size: .8em;
+    color: #137749;
+    font-weight: 300;
+}
+
+.score-text p {
+    font-size: .5em;
+    color: #869382;
+}
+
+.score-text>.total-score {
+    font-size: .8em;
+    color: black;
+}
+
+/* PROFILE BODY START */
+.page-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+#report-message {
+    width: 100%;
+    display: flex;
+    height: 50px;
+    line-height: 50px;
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
+
+}
+
+#report-message a {
+    width: 20%;
+    font-size: 0.6em;
+    text-align: center;
+    background-color: red;
+    color: white;
+
+}
+
+#report-message-info {
+
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+/* styling for navigation in the profile */
+
+.profile-nav {
+    display: flex;
+    margin-top: 1em;
+    justify-content: space-around;
+    background-color: white;
+    padding: .3em;
+
+}
+
+.profile-nav>div {
+    display: flex;
+}
+
+.profile-nav>div>h2 {
+    padding-left: 2em;
+}
+
+.profile-nav>div>img {
+    width: 8%;
+
+}
+
+.profile-nav>div>h2 {
+    font-size: 1em;
+    text-align: center;
+}
+
+.profile-nav>div {
+    width: 30%;
+    border-right: 1px solid black;
+}
+
+.settings {
+    border-right: none !important;
+}
+
+
+
+/* Report page */
+
+#report-page .page-header>h2 {
+    font-size: 3em;
+}
+
+#report-page .page-header {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#report-description>h4 {
+    font-size: 1em;
+}
+
+#report-description>p {
+    font-size: .8em;
+}
+
+#report-body {
+    padding-top: 50px;
+}
+
+#report-body>ul li {
+    margin-bottom: 10px;
+}
+
+.category {
+    margin: 0 auto;
+    display: flex;
+    width: 50%;
+    background-color: #E5E5E5;
+    height: 50px;
+    line-height: 50px;
+    transition: 0.4s;
+    cursor: pointer;
+
+}
+
+.questions-wrapper {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+
+}
+
+.category-icon {
+    width: 15%;
+    background-color: green;
+    text-align: center;
+}
+
+.category-icon img {
+    height: 80%;
+}
+
+.category-title {
+    width: 60%;
+    padding-left: 20px;
+}
+
+.category-progress {
+    width: 15%;
+    color: white;
+    background-color: #7C8180;
+    text-align: center;
+}
+
+.category-arrow {
+    width: 10%;
+    color: white;
+    background-color: #363E42;
+    text-align: center;
+}
+.questions-info{
+    margin-top: 30px;
+}
+.questions-holder{
+    margin-top: 20px;
+}
+.question{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    line-height: 50px;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.question>input{
+    width: 100px;
+}
