@@ -331,7 +331,7 @@ main {
     padding-top: 50px;
 }
 
-#report-body>ul li {
+#report-body>form>ul li {
     margin-bottom: 10px;
 }
 
@@ -401,4 +401,11 @@ main {
 }
 .question>input{
     width: 100px;
+}
+.compared{
+    text-align: center;
+}
+.compared p{
+    line-height: 0;
+    font-size: .6em;
 }
