@@ -28,16 +28,16 @@ showPage(page);
 setDefaultPage();
 
 function setActiveTab(pageId) {
-let pages = document.querySelectorAll("nav a");
-for (let page of pages) {
-  if (`#${pageId}` === page.getAttribute("href")) {
-    page.classList.add("active");
-  } else {
-    page.classList.remove("active");
-  }
+    let pages = document.querySelectorAll("nav a");
+    for (let page of pages) {
+      if (`#${pageId}` === page.getAttribute("href")) {
+        page.classList.add("active");
+      } else {
+        page.classList.remove("active");
+      }
 
-}
-}
+    }
+  }
 
 /*
 let showLoader = (duration) => {
@@ -54,15 +54,15 @@ setTimeout(() => {
 var acc = document.getElementsByClassName("category");
 
 for (let i = 0; i < acc.length; i++) {
-acc[i].addEventListener("click", function () {
-  // this.classList.toggle("active");
-  var panel = this.nextElementSibling;
-  if (panel.style.maxHeight) {
-    panel.style.maxHeight = null;
-  } else {
-    panel.style.maxHeight = panel.scrollHeight + "px";
-  }
-});
+  acc[i].addEventListener("click", function() {
+    // this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
 }
 
 
@@ -113,8 +113,6 @@ const _db = firebase.firestore();
 const _dataRef = _db.collection("output-data");
 let _sustainabilityData;
 
-
-
 // listen for changes on _dataRef
 _dataRef.orderBy("year").onSnapshot(function (snapshotData) {
 _sustainabilityData = []; // reset _sustainabilityData
@@ -127,7 +125,36 @@ snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
 appendFootprint(_sustainabilityData);
 appendScores(_sustainabilityData);
 
-});
+  // generate chart
+  let chart = document.querySelector('#cows');
+  let myDoughnutChart = new Chart(chart, {
+    type: 'bar',
+    data: {
+      datasets: [{
+        data: cows,
+        label: 'Number of Cows',
+        fill: false,
+        borderColor: "#e755ba",
+        backgroundColor: "#e755ba",
+        pointBackgroundColor: "#55bae7",
+        pointBorderColor: "#55bae7",
+        pointHoverBackgroundColor: "#55bae7",
+        pointHoverBorderColor: "#55bae7",
+      }],
+      labels: years
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            min: (Math.min(...cows) - 5),
+            max: (Math.max(...cows) + 1)
+          }
+        }]
+      }
+    }
+  });
+}
 
 function appendScores(sustainabilityData) {
 
@@ -172,5 +199,40 @@ let myDoughnutChart = new Chart(chart, {
   }
 });
 
+  console.log(years);
+  console.log(milkNorth);
+  console.log(milkSouth);
+
+  // generate chart
+  let chart = document.querySelector('#milkProduction');
+  let myDoughnutChart = new Chart(chart, {
+    type: 'line',
+    data: {
+      datasets: [{
+        data: milkNorth,
+        label: 'Milk Production North',
+        fill: false,
+        borderColor: "#e755ba",
+        backgroundColor: "#e755ba",
+        pointBackgroundColor: "#55bae7",
+        pointBorderColor: "#55bae7",
+        pointHoverBackgroundColor: "#55bae7",
+        pointHoverBorderColor: "#55bae7",
+      }, {
+        label: 'Milk Production South',
+        data: milkSouth,
+        fill: false,
+        borderColor: "#55bae7",
+        backgroundColor: "#55bae7",
+        pointBackgroundColor: "#e755ba",
+        pointBorderColor: "#e755ba",
+        pointHoverBackgroundColor: "#e755ba",
+        pointHoverBorderColor: "#e755ba",
+        type: 'line'
+      }],
+      labels: years
+    }
+  });
+}
 
 }
