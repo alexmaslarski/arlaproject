@@ -72,28 +72,7 @@ let hideAllNavPages = () => {
     page.style.display = "none";
   }
 }
-
-function showNavPage(pageId){
-  hideAllNavPages();
-  let tabs = document.querySelectorAll(".profilePage");
-  for (let tab of tabs){
-    if(tab.classList.contains('activeNav')){
-      tab.classList.remove('activeNav');
-      console.log('removed');
-    }
-  };
-  document.querySelector(`#${pageId}`).style.display = "block";
-  document.querySelector(`#${pageId}-tab`).classList.add('activeNav');
-
-}
-
-function setDefaultNavPage(){
-  document.querySelector('#previous-reports').style.display = "block";
-}
-
-
 // show page or tab
-/*
 let showNavPage = pageId => {
   hideAllNavPages();
   document.querySelector(`#${pageId}`).style.display = "block";
@@ -101,11 +80,7 @@ let showNavPage = pageId => {
   setActiveTabNav(pageId);
   // showLoader(500);
 }
-*/
-
-
 // set default page
- /*
 let setDefaultNavPage = () => {
   let page = 'previousReports';
   if (location.hash) {
