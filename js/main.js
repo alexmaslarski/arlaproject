@@ -124,9 +124,24 @@ _dataRef.orderBy("year").onSnapshot(function (snapshotData) {
 
 
   appendFootprint(_sustainabilityData);
-
+  appendScores(_sustainabilityData);
 
 });
+
+function appendScores(sustainabilityData) {
+
+  sustainabilityData.forEach(data => {
+    if (data.year === 2019) {
+      document.querySelector("#total-score").innerHTML = data.totalFootprint;
+      document.querySelector("#digestion-score").innerHTML = data.digestion;
+      document.querySelector("#imported-feed-score").innerHTML = data.importedFeed;
+      document.querySelector("#electricity-score").innerHTML = data.electricity;
+      document.querySelector("#diesel-score").innerHTML = data.diesel;
+
+    }
+  })
+}
+
 
 function appendFootprint(sustainabilityData) {
   let totalCarbonFootprint = [];
