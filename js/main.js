@@ -73,26 +73,37 @@ let hideAllNavPages = () => {
   }
 }
 // show page or tab
-function showNavPage(pageId){
+let showNavPage = pageId => {
   hideAllNavPages();
-  let tabs = document.querySelectorAll(".profilePage");
-  for (let tab of tabs){
-    if(tab.classList.contains('activeNav')){
-      tab.classList.remove('activeNav');
-      console.log('removed');
-    }
-  };
   document.querySelector(`#${pageId}`).style.display = "block";
-  document.querySelector(`#${pageId}-tab`).classList.add('activeNav');
-
+  location.href = `#${pageId}`;
+  setActiveTabNav(pageId);
+  // showLoader(500);
 }
-
-function setDefaultNavPage(){
-  document.querySelector('#previous-reports').style.display = "block";
+// set default page
+let setDefaultNavPage = () => {
+  let page = 'previousReports';
+  if (location.hash) {
+    page = location.hash.slice(1);
+  }
+  showNavPage(page);
 }
-hideAllNavPages();
-
 setDefaultNavPage();
+
+function setActiveTabNav(pageId) {
+  let pages = document.querySelectorAll("#profile-nav a");
+  for (let page of pages) {
+    if (`#${pageId}` === page.getAttribute("href")) {
+      page.classList.add("activeNav");
+
+    } else {
+      page.classList.remove("activeNav");
+    }
+
+  }
+}
+
+hideAllNavPages();
 
 
 //Chart
