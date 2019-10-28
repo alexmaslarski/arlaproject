@@ -1,4 +1,5 @@
-var firebaseConfig = {
+"use strict"
+var _firebaseConfig = {
     apiKey: "AIzaSyCLslndZkWA1MD4hdozGIjw_UNp9_LAM7o",
     authDomain: "arla-project.firebaseapp.com",
     databaseURL: "https://arla-project.firebaseio.com",
@@ -9,5 +10,5 @@ var firebaseConfig = {
     measurementId: "G-VXFXKFKYN5"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(_firebaseConfig);
   firebase.analytics();
