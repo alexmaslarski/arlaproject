@@ -293,7 +293,7 @@ main {
 
 }
 
-#profile-nav a:hover {
+#profile-nav .profilePage:hover {
   background-color: #e5e5e5;
 }
 
@@ -305,7 +305,7 @@ main {
 
 }
 
-#profile-nav a {
+#profile-nav .profilePage {
   text-decoration: none;
   color: #000;
   padding: 10px;
@@ -329,10 +329,10 @@ main {
 #settings {
     border-right: none !important;
 }
-#profile-nav a::before{
+#profile-nav .profilePage::before{
     background-size: 30px 30px;
     display: inline-block;
-    width: 30px; 
+    width: 30px;
     height: 30px;
     content:"";
     margin-right: 10px;
@@ -350,7 +350,7 @@ main {
 /* Profile Charts */
 .chart-container{
     width: 60%;
-    
+
 }
 /* Report page */
 
