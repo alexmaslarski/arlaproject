@@ -3,40 +3,40 @@
 
 // Navigation
 let hideAllPages = () => {
-  let pages = document.querySelectorAll(".page");
-  for (let page of pages) {
-    page.style.display = "none";
-  }
+    let pages = document.querySelectorAll(".page");
+    for (let page of pages) {
+        page.style.display = "none";
+    }
 }
 // show page or tab
 let showPage = pageId => {
-  hideAllPages();
-  document.querySelector(`#${pageId}`).style.display = "block";
-  location.href = `#${pageId}`;
-  setActiveTab(pageId);
-  // showLoader(500);
+    hideAllPages();
+    document.querySelector(`#${pageId}`).style.display = "block";
+    location.href = `#${pageId}`;
+    setActiveTab(pageId);
+    // showLoader(500);
 }
 // set default page
 let setDefaultPage = () => {
-  let page = "profile-page";
-  if (location.hash) {
-    page = location.hash.slice(1);
-  }
-  showPage(page);
+    let page = "profile-page";
+    if (location.hash) {
+        page = location.hash.slice(1);
+    }
+    showPage(page);
 }
 setDefaultPage();
 
 function setActiveTab(pageId) {
-  let pages = document.querySelectorAll("nav a");
-  for (let page of pages) {
-    if (`#${pageId}` === page.getAttribute("href")) {
-      page.classList.add("active");
-    } else {
-      page.classList.remove("active");
-    }
+    let pages = document.querySelectorAll("nav a");
+    for (let page of pages) {
+      if (`#${pageId}` === page.getAttribute("href")) {
+        page.classList.add("active");
+      } else {
+        page.classList.remove("active");
+      }
 
+    }
   }
-}
 
 /*
 let showLoader = (duration) => {
@@ -53,7 +53,7 @@ setTimeout(() => {
 var acc = document.getElementsByClassName("category");
 
 for (let i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function () {
+  acc[i].addEventListener("click", function() {
     // this.classList.toggle("active");
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
@@ -67,43 +67,43 @@ for (let i = 0; i < acc.length; i++) {
 
 //SPA for the navigation inside the profile page
 let hideAllNavPages = () => {
-  let pages = document.querySelectorAll(".profileNavPage");
-  for (let page of pages) {
-    page.style.display = "none";
-  }
+    let pages = document.querySelectorAll(".profileNavPage");
+    for (let page of pages) {
+        page.style.display = "none";
+    }
 }
 // show page or tab
 let showNavPage = pageId => {
-  hideAllNavPages();
-  document.querySelector(`#${pageId}`).style.display = "block";
-  location.href = `#${pageId}`;
-  setActiveTabNav(pageId);
-  // showLoader(500);
+    hideAllNavPages();
+    document.querySelector(`#${pageId}`).style.display = "block";
+    location.href = `#${pageId}`;
+    setActiveTabNav(pageId);
+    // showLoader(500);
 }
 // set default page
 let setDefaultNavPage = () => {
-  let page = 'previousReports';
-  if (location.hash) {
-    page = location.hash.slice(1);
-  }
-  showNavPage(page);
+    let page = 'previousReports';
+    if (location.hash) {
+        page = location.hash.slice(1);
+    }
+    showNavPage(page);
 }
 setDefaultNavPage();
 
 function setActiveTabNav(pageId) {
-  let pages = document.querySelectorAll("#profile-nav a");
-  for (let page of pages) {
-    if (`#${pageId}` === page.getAttribute("href")) {
-      page.classList.add("activeNav");
+    let pages = document.querySelectorAll("#profile-nav a");
+    for (let page of pages) {
+      if (`#${pageId}` === page.getAttribute("href")) {
+        page.classList.add("activeNav");
 
-    } else {
-      page.classList.remove("activeNav");
+      } else {
+        page.classList.remove("activeNav");
+      }
+
     }
-
   }
-}
 
-hideAllNavPages();
+  hideAllNavPages();
 
 
 //Chart
@@ -113,44 +113,35 @@ const _dataRef = _db.collection("output-data");
 const _outputRefNorthDenmark = _db.collection("output-data").doc("year").collection("north-denmark");
 let _sustainabilityData;
 
-
-
 // listen for changes on _dataRef
-_dataRef.orderBy("year").onSnapshot(function (snapshotData) {
+_dataRef.orderBy("year").onSnapshot(function(snapshotData) {
   _sustainabilityData = []; // reset _sustainabilityData
   snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
     let data = doc.data(); // save the data in a variable
-    _sustainabilityData.push(data);
+    data.id = doc.id; // add the id to the data variable
+    _sustainabilityData.push(data); // push the data object to the global array _sustainabilityData
   });
-
-
-  appendFootprint(_sustainabilityData);
-  appendScores(_sustainabilityData);
+  if (data.region === 'north-denmark') {
+  console.log(_sustainabilityData);
+  appendCarbonFootprint(_sustainabilityData); //call appendCarbonFootprint with _sustainabilityData as function argument
 
 });
 
-function appendScores(sustainabilityData) {
-
-  sustainabilityData.forEach(data => {
-    if (data.year === 2019) {
-      document.querySelector("#total-score").innerHTML = data.totalFootprint;
-      document.querySelector("#digestion-score").innerHTML = data.digestion;
-      document.querySelector("#imported-feed-score").innerHTML = data.importedFeed;
-      document.querySelector("#electricity-score").innerHTML = data.electricity;
-      document.querySelector("#diesel-score").innerHTML = data.diesel;
-
-    }
-  })
-}
 
 
-function appendFootprint(sustainabilityData) {
-  let totalCarbonFootprint = [];
+function appendCarbonFootprint(sustainabilityData) {
+  // prepare data
+  let carbonFootprint = [];
   let years = [];
   sustainabilityData.forEach(data => {
-    totalCarbonFootprint.push(data.totalFootprint);
-    years.push(data.year);
+    if (data.region === 'north-denmark') {
+      carbonFootprint.push(data.carbonFootprintWholeFarm.replace(',', '.'));
+      years.push(data.year);
+    }
   });
+
+  console.log(carbonFootprint);
+  console.log(years);
 
   // generate chart
   let chart = document.querySelector('#carbonFootprint');
@@ -158,8 +149,8 @@ function appendFootprint(sustainabilityData) {
     type: 'line',
     data: {
       datasets: [{
-        data: totalCarbonFootprint,
-        label: 'kg CO2 per year',
+        data: total-footprint-output,
+        label: 'Carbon Footprint WholeFarm',
         fill: false,
         borderColor: "#e755ba",
         backgroundColor: "#e755ba",
@@ -171,6 +162,7 @@ function appendFootprint(sustainabilityData) {
       labels: years
     }
   });
-
-
 }
+
+
+//End of chart
