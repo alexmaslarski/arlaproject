@@ -112,7 +112,7 @@
         <div id="profile-nav">
 
           <a id="previous-reports-tab" href="#previousReports" class="profilePage" onclick="showNavPage('previousReports')">
-Previous Reports
+            Previous Reports
           </a>
 
           <a id="statistics-tab" href="#statistics" class="profilePage" onclick="showNavPage('statistics')">
@@ -134,9 +134,14 @@ Previous Reports
           <div class="chart-container">
             <canvas id="carbonFootprint"></canvas>
           </div>
-          
+
         </section>
-        <section class="profileNavPage" id="statistics">a</section>
+        <section class="profileNavPage" id="statistics">
+          <div class="chart-container">
+            <canvas id="regions"></canvas>
+          </div>
+
+        </section>
         <section class="profileNavPage" id="settings">b</section>
 
 
@@ -157,196 +162,196 @@ Previous Reports
 
         </section>
         <section id="report-body">
-            <form>
-                <ul>
-                    <li class="category" id="herd-category">
-                        <div class="category-icon">
-                            <img src="img/importedfeed.png" alt="">
-                        </div>
-                        <div class="category-title">
-                            <h3>Herd</h3>
-                        </div>
-                        <div class="category-progress">
-                            <p>0/3</p>
-                        </div>
-                        <div class="category-arrow">></div>
-                    </li>
-                    <div class="questions-wrapper">
-                        <div class="questions-info">
-                            <p>In this category you are going to find questions related to your herd</p>
-                            <a href="#">Read more about pollution emission reduction on our guidelines page.</a>
-                        </div>
-                        <div class="questions-holder">
-                            <div class="question">
-                                <p class="question-number">1.</p>
-                                <p class="question-text">How many cows do you have?
-                                </p>
-                                <input type="number">
-                                <div class="compared">
-                                        <i class="fas fa-long-arrow-alt-up"></i>
-                                        <p>10%</p>
-                                </div>
-                                <div class="compared">
-                                        <i class="fas fa-long-arrow-alt-down"></i>
-                                        <p>10%</p>
-                                </div>
-                                <div>
-                                    <i class="fas fa-info-circle"></i>
-                                </div>
-
-                            </div>
-                            <div class="question">
-                                <p class="question-number">2.</p>
-                                <p class="question-text">How much milk do you produce a year?
-                                </p>
-                                <input type="number">
-                                <div class="compared">
-                                        <i class="fas fa-long-arrow-alt-up"></i>
-                                        <p>10%</p>
-                                </div>
-                                <div class="compared">
-                                        <i class="fas fa-long-arrow-alt-down"></i>
-                                        <p>10%</p>
-                                </div>
-                                <div>
-                                    <i class="fas fa-info-circle"></i>
-                                </div>
-
-                            </div>
-                            <div class="question">
-                                <p class="question-number">3.</p>
-                                <p class="question-text">How many percent of dry matter do you produce a year?
-                                </p>
-                                <input type="number">
-                                <div class="compared">
-                                        <i class="fas fa-long-arrow-alt-up"></i>
-                                        <p>10%</p>
-                                </div>
-                                <div class="compared">
-                                        <i class="fas fa-long-arrow-alt-down"></i>
-                                        <p>10%</p>
-                                </div>
-                                <div>
-                                    <i class="fas fa-info-circle"></i>
-                                </div>
-
-                            </div>
-                        </div>
-
+          <form>
+            <ul>
+              <li class="category" id="herd-category">
+                <div class="category-icon">
+                  <img src="img/importedfeed.png" alt="">
+                </div>
+                <div class="category-title">
+                  <h3>Herd</h3>
+                </div>
+                <div class="category-progress">
+                  <p>0/3</p>
+                </div>
+                <div class="category-arrow">></div>
+              </li>
+              <div class="questions-wrapper">
+                <div class="questions-info">
+                  <p>In this category you are going to find questions related to your herd</p>
+                  <a href="#">Read more about pollution emission reduction on our guidelines page.</a>
+                </div>
+                <div class="questions-holder">
+                  <div class="question">
+                    <p class="question-number">1.</p>
+                    <p class="question-text">How many cows do you have?
+                    </p>
+                    <input type="number">
+                    <div class="compared">
+                      <i class="fas fa-long-arrow-alt-up"></i>
+                      <p>10%</p>
                     </div>
-                    <li class="category" id="herd-category">
-                        <div class="category-icon">
-                            <img src="img/importedfeed.png" alt="">
-                        </div>
-                        <div class="category-title">
-                            <h3>Cows</h3>
-                        </div>
-                        <div class="category-progress">
-                            <p>0/1</p>
-                        </div>
-                        <div class="category-arrow">></div>
-                    </li>
-                    <div class="questions-wrapper">
-                        <div class="questions-info">
-                            <p>In this category you are going to find questions related to your herd</p>
-                            <a href="#">Read more about pollution emission reduction on our guidelines page.</a>
-                        </div>
-                        <div class="questions-holder">
-                            <div class="question">
-                                <p class="question-number">4.</p>
-                                <p class="question-text">How many kg of dry matter did a cow consume per year?
-                                </p>
-                                <input type="number">
-                                <div class="compared">
-                                        <i class="fas fa-long-arrow-alt-up"></i>
-                                        <p>10%</p>
-                                </div>
-                                <div class="compared">
-                                        <i class="fas fa-long-arrow-alt-down"></i>
-                                        <p>10%</p>
-                                </div>
-                                <div>
-                                    <i class="fas fa-info-circle"></i>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
+                    <div class="compared">
+                      <i class="fas fa-long-arrow-alt-down"></i>
+                      <p>10%</p>
                     </div>
-                    <li class="category" id="herd-category">
-                        <div class="category-icon">
-                            <img src="img/electricity.png" alt="">
-                        </div>
-                        <div class="category-title">
-                            <h3>Energy</h3>
-                        </div>
-                        <div class="category-progress">
-                            <p>0/2</p>
-                        </div>
-                        <div class="category-arrow">></div>
-                    </li>
-                    <div class="questions-wrapper">
-                        <div class="questions-info">
-                            <p>In this category you are going to find questions related to your herd</p>
-                            <a href="#">Read more about pollution emission reduction on our guidelines page.</a>
-                        </div>
-                        <div class="questions-holder">
-                            <div class="question">
-                                <p class="question-number">5.</p>
-                                <p class="question-text">How much diesel do you use for a year?
-                                </p>
-                                <input type="number">
-                                <div class="compared">
-                                        <i class="fas fa-long-arrow-alt-up"></i>
-                                        <p>10%</p>
-                                </div>
-                                <div class="compared">
-                                        <i class="fas fa-long-arrow-alt-down"></i>
-                                        <p>10%</p>
-                                </div>
-                                <div>
-                                    <i class="fas fa-info-circle"></i>
-                                </div>
-
-                            </div>
-                            <div class="question">
-                                <p class="question-number">6.</p>
-                                <p class="question-text">How much electricity do you use for a year?
-                                </p>
-                                <input type="number">
-                                <div class="compared">
-                                        <i class="fas fa-long-arrow-alt-up"></i>
-                                        <p>10%</p>
-                                </div>
-                                <div class="compared">
-                                        <i class="fas fa-long-arrow-alt-down"></i>
-                                        <p>10%</p>
-                                </div>
-                                <div>
-                                    <i class="fas fa-info-circle"></i>
-                                </div>
-
-                            </div>
-
-                        </div>
-
+                    <div>
+                      <i class="fas fa-info-circle"></i>
                     </div>
 
-                </ul>
-            </form>
+                  </div>
+                  <div class="question">
+                    <p class="question-number">2.</p>
+                    <p class="question-text">How much milk do you produce a year?
+                    </p>
+                    <input type="number">
+                    <div class="compared">
+                      <i class="fas fa-long-arrow-alt-up"></i>
+                      <p>10%</p>
+                    </div>
+                    <div class="compared">
+                      <i class="fas fa-long-arrow-alt-down"></i>
+                      <p>10%</p>
+                    </div>
+                    <div>
+                      <i class="fas fa-info-circle"></i>
+                    </div>
 
-        </section>
-                <p class="button" id="save-changes">Save changes</p>
-                <p class="button" id="submit">Submit</p>
-            </div>
+                  </div>
+                  <div class="question">
+                    <p class="question-number">3.</p>
+                    <p class="question-text">How many percent of dry matter do you produce a year?
+                    </p>
+                    <input type="number">
+                    <div class="compared">
+                      <i class="fas fa-long-arrow-alt-up"></i>
+                      <p>10%</p>
+                    </div>
+                    <div class="compared">
+                      <i class="fas fa-long-arrow-alt-down"></i>
+                      <p>10%</p>
+                    </div>
+                    <div>
+                      <i class="fas fa-info-circle"></i>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+              <li class="category" id="herd-category">
+                <div class="category-icon">
+                  <img src="img/importedfeed.png" alt="">
+                </div>
+                <div class="category-title">
+                  <h3>Cows</h3>
+                </div>
+                <div class="category-progress">
+                  <p>0/1</p>
+                </div>
+                <div class="category-arrow">></div>
+              </li>
+              <div class="questions-wrapper">
+                <div class="questions-info">
+                  <p>In this category you are going to find questions related to your herd</p>
+                  <a href="#">Read more about pollution emission reduction on our guidelines page.</a>
+                </div>
+                <div class="questions-holder">
+                  <div class="question">
+                    <p class="question-number">4.</p>
+                    <p class="question-text">How many kg of dry matter did a cow consume per year?
+                    </p>
+                    <input type="number">
+                    <div class="compared">
+                      <i class="fas fa-long-arrow-alt-up"></i>
+                      <p>10%</p>
+                    </div>
+                    <div class="compared">
+                      <i class="fas fa-long-arrow-alt-down"></i>
+                      <p>10%</p>
+                    </div>
+                    <div>
+                      <i class="fas fa-info-circle"></i>
+                    </div>
+
+                  </div>
+
+
+                </div>
+
+              </div>
+              <li class="category" id="herd-category">
+                <div class="category-icon">
+                  <img src="img/electricity.png" alt="">
+                </div>
+                <div class="category-title">
+                  <h3>Energy</h3>
+                </div>
+                <div class="category-progress">
+                  <p>0/2</p>
+                </div>
+                <div class="category-arrow">></div>
+              </li>
+              <div class="questions-wrapper">
+                <div class="questions-info">
+                  <p>In this category you are going to find questions related to your herd</p>
+                  <a href="#">Read more about pollution emission reduction on our guidelines page.</a>
+                </div>
+                <div class="questions-holder">
+                  <div class="question">
+                    <p class="question-number">5.</p>
+                    <p class="question-text">How much diesel do you use for a year?
+                    </p>
+                    <input type="number">
+                    <div class="compared">
+                      <i class="fas fa-long-arrow-alt-up"></i>
+                      <p>10%</p>
+                    </div>
+                    <div class="compared">
+                      <i class="fas fa-long-arrow-alt-down"></i>
+                      <p>10%</p>
+                    </div>
+                    <div>
+                      <i class="fas fa-info-circle"></i>
+                    </div>
+
+                  </div>
+                  <div class="question">
+                    <p class="question-number">6.</p>
+                    <p class="question-text">How much electricity do you use for a year?
+                    </p>
+                    <input type="number">
+                    <div class="compared">
+                      <i class="fas fa-long-arrow-alt-up"></i>
+                      <p>10%</p>
+                    </div>
+                    <div class="compared">
+                      <i class="fas fa-long-arrow-alt-down"></i>
+                      <p>10%</p>
+                    </div>
+                    <div>
+                      <i class="fas fa-info-circle"></i>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
 
             </ul>
           </form>
 
         </section>
+        <p class="button" id="save-changes">Save changes</p>
+        <p class="button" id="submit">Submit</p>
       </div>
+
+      </ul>
+      </form>
+
+      </section>
+    </div>
 
     </div>
   </main>
