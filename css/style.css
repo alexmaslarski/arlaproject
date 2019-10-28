@@ -267,6 +267,9 @@ main {
     justify-content: space-around;
     width: 80%;
 }
+#report-message-info p{
+    font-size: .7em;
+}
 
 /* styling for navigation in the profile */
 
@@ -286,7 +289,6 @@ main {
 
 #profile-nav a:hover {
   background-color: #e5e5e5;
-  border-bottom: 5px solid #e5e5e5;
 }
 
 .activeNav {
@@ -308,18 +310,36 @@ main {
 }
 
 #profile-nav h2 {
-  margin-left: 25%;
+  margin-left: 20px;
+  font-size: 1em;
 }
 
 #profile-nav img {
-    max-width: 10%;
+    max-width: 30px;
+    max-height: 30px;
 
 }
 
 #settings {
     border-right: none !important;
 }
-
+#profile-nav a::before{
+    background-size: 30px 30px;
+    display: inline-block;
+    width: 30px; 
+    height: 30px;
+    content:"";
+    margin-right: 10px;
+}
+#previous-reports-tab::before{
+    background-image: url('../img/report_icon.png');
+}
+#statistics-tab::before{
+    background-image: url('../img/chart_icon.png');
+}
+#settings-tab::before{
+    background-image: url('../img/setting_icon.png');
+}
 
 
 /* Report page */
