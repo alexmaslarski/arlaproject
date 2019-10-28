@@ -46,7 +46,7 @@
               <div id="total-score-element">
                 <img src="img/totalscore.png" alt="">
                 <h2>Total Score</h2>
-                <p class="total-score">0.433</p>
+                <p id="total-score" class="total-score"></p>
                 <p>kg CO2 per kg milk</p>
               </div>
             </div>
@@ -56,7 +56,7 @@
 
                 <div class="score-text">
                   <h2>Digestion</h2>
-                  <p class="total-score">0.433</p>
+                  <p id="digestion-score" class="total-score"></p>
                   <p>kg CO2 per kg milk</p>
                 </div>
 
@@ -66,7 +66,7 @@
 
                 <div class="score-text">
                   <h2>Imported Feed</h2>
-                  <p class="total-score">0.433</p>
+                  <p id="imported-feed-score" class="total-score"></p>
                   <p>kg CO2 per kg milk</p>
                 </div>
 
@@ -78,7 +78,7 @@
 
                 <div class="score-text">
                   <h2>Electricity & Heating</h2>
-                  <p class="total-score">0.433</p>
+                  <p id="electricity-score" class="total-score"></p>
                   <p>kg CO2 per kg milk</p>
                 </div>
 
@@ -88,7 +88,7 @@
 
                 <div class="score-text">
                   <h2>Diesel</h2>
-                  <p class="total-score">0.433</p>
+                  <p id="diesel-score" class="total-score"></p>
                   <p>kg CO2 per kg milk</p>
                 </div>
 
@@ -111,33 +111,29 @@
 
         <div id="profile-nav">
 
-          <div id="previous-reports-tab"  class="profilePage activeNav" onclick="showNavPage('previous-reports')" style="display:block">
+          <a id="previous-reports-tab" href="#previousReports" class="profilePage" onclick="showNavPage('previousReports')">
 Previous Reports
-</div>
+          </a>
 
-          <div id="statistics-tab"  class="profilePage" onclick="showNavPage('statistics')">
-
+          <a id="statistics-tab" href="#statistics" class="profilePage" onclick="showNavPage('statistics')">
             Statistics
-          </div>
+          </a>
 
-                    <div id="settings-tab"  class="profilePage" onclick="showNavPage('settings')">
+          <a id="settings-tab" href="#settings" class="profilePage" onclick="showNavPage('settings')">
+
             Settings
-          </div>
+          </a>
 
-
-</div>
+        </div>
         <!--End of #profile-nav-->
 
-        <section class="profileNavPage" id="previous-reports">
+        <section class="profileNavPage" id="previousReports">
           <div>
             <h2>Your performance based on the last 5 years</h2>
           </div>
-
-
           <div class="chart-container">
             <canvas id="carbonFootprint"></canvas>
           </div>
-
 
         </section>
         <section class="profileNavPage" id="statistics">a</section>
@@ -147,6 +143,7 @@ Previous Reports
 
 
       </section>
+    </div>
     <div class="page" id="report-page">
       <div class="page-wrapper">
         <section class="page-header">
@@ -172,7 +169,7 @@ Previous Reports
                         <div class="category-progress">
                             <p>0/3</p>
                         </div>
-                        <div class="category-arrow"><i class="fas fa-angle-right"></i></div>
+                        <div class="category-arrow">></div>
                     </li>
                     <div class="questions-wrapper">
                         <div class="questions-info">
@@ -247,7 +244,7 @@ Previous Reports
                         <div class="category-progress">
                             <p>0/1</p>
                         </div>
-                        <div class="category-arrow"><i class="fas fa-angle-right"></i></div>
+                        <div class="category-arrow">></div>
                     </li>
                     <div class="questions-wrapper">
                         <div class="questions-info">
@@ -288,7 +285,7 @@ Previous Reports
                         <div class="category-progress">
                             <p>0/2</p>
                         </div>
-                        <div class="category-arrow"><i class="fas fa-angle-right"></i></div>
+                        <div class="category-arrow">></div>
                     </li>
                     <div class="questions-wrapper">
                         <div class="questions-info">
