@@ -404,6 +404,9 @@ main {
 .questions-holder{
     margin-top: 20px;
 }
+.question-text{
+    width: 65%;
+}
 .question{
     display: flex;
     justify-content: space-between;
