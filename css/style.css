@@ -326,7 +326,7 @@ cursor: pointer;
 #profile-nav li::before{
     background-size: 30px 30px;
     display: inline-block;
-    width: 30px; 
+    width: 30px;
     height: 30px;
     content:"";
     margin-right: 10px;
@@ -344,7 +344,7 @@ cursor: pointer;
 /* Profile Charts */
 .chart-container{
     width: 60%;
-    
+
 }
 /* Report page */
 
@@ -477,4 +477,63 @@ cursor: pointer;
 #submit{
     background-color: gray;
     margin: 10px auto;
+}
+
+
+@media only screen and (max-width: 1024px){
+
+#profile-header {
+  flex-direction: column;
+  height: auto;
+}
+
+#profile-sust-score {
+  width: 100%;
+}
+
+#profile-personal-info {
+  width: 100%;
+}
+
+#profile-personal-info ul{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#profile-personal-info li {
+  padding: 5px;
+}
+
+.score-container {
+  padding: 1em 0 .5em;
+}
+
+.score-container .score:nth-child(1){
+  order: 2;
+}
+
+.score-container .score:nth-child(2){
+  order: 1;
+}
+
+.score-container .score:nth-child(3){
+  order: 3;
+}
+
+#profile-sust-score {
+  padding: 1em;
+}
+
+#profile-nav{
+  margin: 2em auto .7em;
+}
+}
+
+@media only screen and (max-width: 768px){
+
+}
+
+@media only screen and (max-width: 480px) {
+
 }
