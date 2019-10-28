@@ -347,11 +347,15 @@ main {
     background-image: url('../img/setting_icon.png');
 }
 
+<<<<<<< HEAD
 /* Profile Charts */
 .chart-container{
     width: 60%;
 
 }
+=======
+
+>>>>>>> parent of 3bb0b4d... Scores
 /* Report page */
 
 #report-page .page-header>h2 {
