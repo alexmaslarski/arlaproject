@@ -332,7 +332,7 @@ main {
 #profile-nav a::before{
     background-size: 30px 30px;
     display: inline-block;
-    width: 30px;
+    width: 30px; 
     height: 30px;
     content:"";
     margin-right: 10px;
@@ -350,6 +350,7 @@ main {
 /* Profile Charts */
 .chart-container{
     width: 60%;
+    
 }
 /* Report page */
 
