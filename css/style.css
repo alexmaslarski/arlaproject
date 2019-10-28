@@ -281,7 +281,7 @@ main {
 
 #profile-nav {
     display: flex;
-
+    font-size: .7em;
     margin-top: 1em;
     justify-content: center;
     align-items: baseline;
@@ -312,8 +312,6 @@ main {
   width: 33.33%;
   display: flex;
   justify-content: flex-start;
-  height: 50px;
-  line-height: 30px;
 
 }
 
@@ -349,11 +347,7 @@ main {
     background-image: url('../img/setting_icon.png');
 }
 
-/* Profile Charts */
-.chart-container{
-    width: 60%;
-    
-}
+
 /* Report page */
 
 #report-page .page-header>h2 {
