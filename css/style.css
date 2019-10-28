@@ -70,7 +70,12 @@ img {
     box-shadow: 3px 0 5px 0px rgba(0, 0, 0, 0.3);
 
 }
-
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
 .logo {
     display: block;
     padding: 30px 0;
@@ -293,7 +298,7 @@ main {
 
 }
 
-#profile-nav a:hover {
+#profile-nav li:hover {
   background-color: #e5e5e5;
 }
 
@@ -305,7 +310,7 @@ main {
 
 }
 
-#profile-nav a {
+#profile-nav li {
   text-decoration: none;
   color: #000;
   padding: 10px;
@@ -314,24 +319,11 @@ main {
   justify-content: flex-start;
   height: 50px;
   line-height: 30px;
-
+  font-size: .8em;
+cursor: pointer;
 }
 
-#profile-nav h2 {
-  margin-left: 20px;
-  font-size: 1em;
-}
-
-#profile-nav img {
-    max-width: 30px;
-    max-height: 30px;
-
-}
-
-#settings {
-    border-right: none !important;
-}
-#profile-nav a::before{
+#profile-nav li::before{
     background-size: 30px 30px;
     display: inline-block;
     width: 30px; 
@@ -430,6 +422,15 @@ main {
     background-color: #363E42;
     text-align: center;
 }
+.arrow::before{
+    content: "\f054";
+    transition: .4s;
+}
+.activeCategory>.category-arrow>.arrow::before{
+    display: inline-block;
+    transform: rotate(90deg);
+    transition: .4s;
+}
 .questions-info{
     margin-top: 30px;
 }
@@ -453,6 +454,8 @@ main {
 }
 .compared{
     text-align: center;
+    width: 10%;
+    line-height: 40px;
 }
 .compared p{
     line-height: 0;

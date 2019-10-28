@@ -54,7 +54,7 @@ var acc = document.getElementsByClassName("category");
 
 for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function () {
-    // this.classList.toggle("active");
+    this.classList.toggle("activeCategory");
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
@@ -76,24 +76,22 @@ let hideAllNavPages = () => {
 let showNavPage = pageId => {
   hideAllNavPages();
   document.querySelector(`#${pageId}`).style.display = "block";
-  location.href = `#${pageId}`;
   setActiveTabNav(pageId);
   // showLoader(500);
 }
 // set default page
 let setDefaultNavPage = () => {
   let page = 'previousReports';
-  if (location.hash) {
-    page = location.hash.slice(1);
-  }
   showNavPage(page);
+
+
 }
 setDefaultNavPage();
 
 function setActiveTabNav(pageId) {
-  let pages = document.querySelectorAll("#profile-nav a");
+  let pages = document.querySelectorAll("#profile-nav li");
   for (let page of pages) {
-    if (`#${pageId}` === page.getAttribute("href")) {
+    if (`#${pageId}` === `#${page.getAttribute("data-link")}`) {
       page.classList.add("activeNav");
 
     } else {
@@ -103,13 +101,13 @@ function setActiveTabNav(pageId) {
   }
 }
 
-hideAllNavPages();
-
 
 //Chart
 
 const _db = firebase.firestore();
 const _dataRef = _db.collection("output-data");
+const _dataRefAverage = _db.collection("industry-avg");
+const _dataRefInput = _db.collection("input-data");
 let _sustainabilityData;
 
 
@@ -175,6 +173,7 @@ function appendFootprint(sustainabilityData) {
 }
 
 
+
 function appendRegions(sustainabilityData) {
   let regions = [];
   let totalFootprint = [];
@@ -223,3 +222,91 @@ console.log(sustainabilityData);
   console.log(regionPieChart);
 
 };
+
+
+
+
+// Input calculations
+let averageData;
+_dataRefAverage.onSnapshot(function (snapshotData) {
+  snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
+    averageData = doc.data(); // save the data in a variable
+    console.log(averageData);
+
+  });
+
+});
+let lastYearData;
+_dataRefInput.onSnapshot(function (snapshotData) {
+  snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
+    lastYearData = doc.data(); // save the data in a variable
+    console.log(lastYearData);
+
+  });
+
+});
+function compare(value, category) {
+  compareToNorm(value,category);
+  compareToLastYear(value,category);
+
+}
+function compareToNorm(value, category) {
+  if (category === "cows") {
+    calculateNorm(value, averageData.cows, 'cowsNorm');
+    console.log(100 - ((value / averageData.cows) * 100));
+
+
+  } else if (category === "milkProduction") {
+    calculateNorm(value, averageData.milkProduction, 'milkNorm');
+  } else if (category === "selfSufficiency") {
+    calculateNorm(value, averageData.milkProduction, 'sufficiencyNorm');
+  } else if (category === "feedConsumption") {
+    calculateNorm(value, averageData.milkProduction, 'feedNorm');
+  } else if (category === "diesel") {
+    calculateNorm(value, averageData.milkProduction, 'dieselNorm');
+  } else if (category === "electricity") {
+    calculateNorm(value, averageData.milkProduction, 'electricityNorm');
+  }
+
+}
+
+function compareToLastYear(value, category) {
+  if (lastYearData.year == 2018) {
+    if (category === "cows") {
+      calculateNorm(value, lastYearData.cows, 'cowsLast');
+      console.log(100 - ((value / lastYearData.cows) * 100));
+    } else if (category === "milkProduction") {
+      calculateNorm(value, lastYearData.milkProduction, 'milkLast');
+    } else if (category === "selfSufficiency") {
+      calculateNorm(value, lastYearData.milkProduction, 'sufficiencyLast');
+    } else if (category === "feedConsumption") {
+      calculateNorm(value, lastYearData.milkProduction, 'feedLast');
+    } else if (category === "diesel") {
+      calculateNorm(value, lastYearData.milkProduction, 'dieselLast');
+    } else if (category === "electricity") {
+      calculateNorm(value, lastYearData.milkProduction, 'electricityLast');
+    }
+  }
+
+
+}
+
+function calculateNorm(value, norm, element) {
+  let result = 100 - ((value / norm) * 100);
+  if (result < 0) {
+    document.querySelector(`#${element}`).innerHTML = `
+<i class="fas fa-long-arrow-alt-up red"></i>
+<p>${Math.abs(result).toFixed(2)}%</p>
+`
+  } else if (result > 0) {
+    document.querySelector(`#${element}`).innerHTML = `
+<i class="fas fa-long-arrow-alt-down green"></i>
+<p>${Math.abs(result).toFixed(2)}%</p>
+`
+  } else if (result == 0) {
+    document.querySelector(`#${element}`).innerHTML = `
+    <i class="fas fa-equals"></i>
+    <p>${Math.abs(result).toFixed(2)}%</p>
+    `
+  }
+}
