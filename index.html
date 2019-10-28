@@ -46,7 +46,7 @@
               <div id="total-score-element">
                 <img src="img/totalscore.png" alt="">
                 <h2>Total Score</h2>
-                <p class="total-score">0.433</p>
+                <p id="total-score" class="total-score"></p>
                 <p>kg CO2 per kg milk</p>
               </div>
             </div>
@@ -56,7 +56,7 @@
 
                 <div class="score-text">
                   <h2>Digestion</h2>
-                  <p class="total-score">0.433</p>
+                  <p id="digestion-score" class="total-score"></p>
                   <p>kg CO2 per kg milk</p>
                 </div>
 
@@ -66,7 +66,7 @@
 
                 <div class="score-text">
                   <h2>Imported Feed</h2>
-                  <p class="total-score">0.433</p>
+                  <p id="imported-feed-score" class="total-score"></p>
                   <p>kg CO2 per kg milk</p>
                 </div>
 
@@ -78,7 +78,7 @@
 
                 <div class="score-text">
                   <h2>Electricity & Heating</h2>
-                  <p class="total-score">0.433</p>
+                  <p id="electricity-score" class="total-score"></p>
                   <p>kg CO2 per kg milk</p>
                 </div>
 
@@ -88,7 +88,7 @@
 
                 <div class="score-text">
                   <h2>Diesel</h2>
-                  <p class="total-score">0.433</p>
+                  <p id="diesel-score" class="total-score"></p>
                   <p>kg CO2 per kg milk</p>
                 </div>
 
@@ -133,7 +133,10 @@ Previous Reports
           <div>
             <h2>Your performance based on the last 5 years</h2>
           </div>
-          <canvas id="carbonFootprint"></canvas>
+          <div class="chart-container">
+            <canvas id="carbonFootprint"></canvas>
+          </div>
+
         </section>
         <section class="profileNavPage" id="statistics">a</section>
         <section class="profileNavPage" id="settings">b</section>
