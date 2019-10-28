@@ -528,9 +528,120 @@ cursor: pointer;
 #profile-nav{
   margin: 2em auto .7em;
 }
+
+#report-message a{
+  font-size: .5em;
+  width: 25%;
+}
+
+#report-message-info{
+  width: 75%;
+  font-size: .9em
+}
+#profile-personal-info h2 {
+  display: none;
+}
+
 }
 
 @media only screen and (max-width: 768px){
+#report-message a{
+
+}
+
+#report-message-info{
+
+}
+
+.score-container {
+  display: block;
+
+}
+
+.score-element{
+  padding-left: 1em;
+  margin-top: 1em;
+}
+
+.score-icon {
+  margin-right: 1.5em;
+}
+
+#profile-personal-info ul{
+  display: block;
+}
+
+#profile-personal-info h2 {
+  display: block;
+  text-align: center;
+}
+
+#report-message {
+  flex-direction: column;
+  height: auto;
+  background-color: white;
+  padding: .5em;
+  text-align: center;
+}
+
+#report-message a {
+  width: 250px;
+  font-size: .6em;
+  text-align: center;
+  margin: auto;
+}
+
+#report-message-info {
+  font-size: 1em;
+  display: block;
+  width: 100%;
+}
+
+#profile-nav li {
+  font-size: .7em;
+  line-height: 12px;
+  align-items: center;
+}
+
+#profile-nav li::before {
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    margin-right: 5px;
+}
+
+#previousReports h2 {
+  font-size: 1em;
+  padding: .3em 0;
+}
+
+#nav-container {
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    background-color: white;
+    bottom: 0;
+}
+
+#nav-container .logo {
+  display: none;
+}
+
+#nav-container ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-nav {
+    padding-top: 0;
+    height: 100%;
+}
+
+main {
+  padding: 0 0  70px 0;
+}
 
 }
 
