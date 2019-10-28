@@ -116,6 +116,11 @@ img {
     position: relative;
     z-index: 2;
 }
+.active {
+  background-color: #e5e5e5;
+  border-right:3px solid #006C3A ;
+  box-shadow: 7px 0 9px 0px rgba(0, 0, 0, 0.3);
+}
 
 main {
     width: 100%;
@@ -247,12 +252,13 @@ main {
     display: flex;
     height: 50px;
     line-height: 50px;
-    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 7px 7px 9px 0px rgba(0, 0, 0, 0.3);
 
 }
 
 #report-message a {
     width: 20%;
+    height: 100%;
     font-size: 0.6em;
     text-align: center;
     background-color: red;
@@ -266,6 +272,9 @@ main {
     display: flex;
     justify-content: space-around;
     width: 80%;
+}
+#report-message-info p{
+    font-size: .7em;
 }
 
 /* styling for navigation in the profile */
@@ -286,7 +295,6 @@ main {
 
 #profile-nav a:hover {
   background-color: #e5e5e5;
-  border-bottom: 5px solid #e5e5e5;
 }
 
 .activeNav {
@@ -308,18 +316,36 @@ main {
 }
 
 #profile-nav h2 {
-  margin-left: 25%;
+  margin-left: 20px;
+  font-size: 1em;
 }
 
 #profile-nav img {
-    max-width: 10%;
+    max-width: 30px;
+    max-height: 30px;
 
 }
 
 #settings {
     border-right: none !important;
 }
-
+#profile-nav a::before{
+    background-size: 30px 30px;
+    display: inline-block;
+    width: 30px; 
+    height: 30px;
+    content:"";
+    margin-right: 10px;
+}
+#previous-reports-tab::before{
+    background-image: url('../img/report_icon.png');
+}
+#statistics-tab::before{
+    background-image: url('../img/chart_icon.png');
+}
+#settings-tab::before{
+    background-image: url('../img/setting_icon.png');
+}
 
 
 /* Report page */
@@ -403,6 +429,9 @@ main {
 }
 .questions-holder{
     margin-top: 20px;
+}
+.question-text{
+    width: 65%;
 }
 .question{
     display: flex;
