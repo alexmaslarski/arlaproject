@@ -79,7 +79,6 @@ function showNavPage(pageId){
   for (let tab of tabs){
     if(tab.classList.contains('activeNav')){
       tab.classList.remove('activeNav');
-      console.log('removed');
     }
   };
   document.querySelector(`#${pageId}`).style.display = "block";
