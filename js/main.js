@@ -53,7 +53,7 @@ setTimeout(() => {
 var acc = document.getElementsByClassName("category");
 
 for (let i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function () {
+  acc[i].addEventListener("click", function() {
     this.classList.toggle("activeCategory");
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
@@ -113,14 +113,14 @@ let _sustainabilityData;
 
 
 // listen for changes on _dataRef
-_dataRef.orderBy("year").onSnapshot(function (snapshotData) {
+_dataRef.orderBy("year").onSnapshot(function(snapshotData) {
   _sustainabilityData = []; // reset _sustainabilityData
   snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
     let data = doc.data(); // save the data in a variable
     _sustainabilityData.push(data);
   });
 
-appendRegions(_sustainabilityData);
+  appendRegions(_sustainabilityData);
   appendFootprint(_sustainabilityData);
   appendScores(_sustainabilityData);
 
@@ -150,16 +150,41 @@ function appendFootprint(sustainabilityData) {
   });
 
   // generate chart
+  Chart.defaults.global.defaultFontFamily = 'Roboto';
+  Chart.defaults.global.defaultFontColor = '#006C3A';
   let chart = document.querySelector('#carbonFootprint');
   let myDoughnutChart = new Chart(chart, {
-    type: 'line',
+    type: 'bar',
+    options: {
+      title: {
+        display: true,
+        text: 'Custom Chart Title',
+        fontSize: 20,
+      },
+      legend: false,
+    },
     data: {
       datasets: [{
         data: totalCarbonFootprint,
         label: 'kg CO2 per year',
         fill: false,
-        borderColor: "#e755ba",
-        backgroundColor: "#e755ba",
+        hoverBackgroundColor: [
+          "rgba(075, 177, 049, .9)",
+          "rgba(255, 204, 050, .9)",
+          "rgba(060, 196, 235, .9)"
+        ],
+
+        borderWidth: 2.5,
+        borderColor: [
+          "#4bb131",
+          "#ffcc32",
+          "#3cc4eb"
+        ],
+        backgroundColor: [
+          "rgba(075, 177, 049, .6)",
+          "rgba(255, 204, 050, .6)",
+          "rgba(060, 196, 235, .6)"
+        ],
         pointBackgroundColor: "#55bae7",
         pointBorderColor: "#55bae7",
         pointHoverBackgroundColor: "#55bae7",
@@ -181,19 +206,19 @@ function appendRegions(sustainabilityData) {
   console.log(totalFootprint);
 
 
-for (let data of sustainabilityData) {
-  regions.push(data.region);
-  totalFootprint.push(data.totalFootprint);
+  for (let data of sustainabilityData) {
+    regions.push(data.region);
+    totalFootprint.push(data.totalFootprint);
   }
-console.log(sustainabilityData);
+  console.log(sustainabilityData);
   let regionChart = document.querySelector('#regions');
   let regionPieChart = new Chart(regionChart, {
-    type: 'pie',
+    type: 'doughnut',
     options: {
       title: {
-              display: true,
-              text: 'Custom Chart Title'
-          },
+        display: true,
+        text: 'Custom Chart Title'
+      },
       legend: {
         position: 'bottom',
       }
@@ -203,11 +228,11 @@ console.log(sustainabilityData);
         data: totalFootprint,
         label: 'kg CO2 per year',
         fill: true,
-        borderColor: "#e755ba",
+
         backgroundColor: [
-          "#e755ba",
-          "#e5e5e5",
-          "#006C3A"
+          "rgba()",
+          "#f8353c",
+          "#ff7e05"
 
         ],
 
@@ -228,7 +253,7 @@ console.log(sustainabilityData);
 
 // Input calculations
 let averageData;
-_dataRefAverage.onSnapshot(function (snapshotData) {
+_dataRefAverage.onSnapshot(function(snapshotData) {
   snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
     averageData = doc.data(); // save the data in a variable
     console.log(averageData);
@@ -237,7 +262,7 @@ _dataRefAverage.onSnapshot(function (snapshotData) {
 
 });
 let lastYearData;
-_dataRefInput.onSnapshot(function (snapshotData) {
+_dataRefInput.onSnapshot(function(snapshotData) {
   snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
     lastYearData = doc.data(); // save the data in a variable
     console.log(lastYearData);
@@ -245,11 +270,13 @@ _dataRefInput.onSnapshot(function (snapshotData) {
   });
 
 });
+
 function compare(value, category) {
-  compareToNorm(value,category);
-  compareToLastYear(value,category);
+  compareToNorm(value, category);
+  compareToLastYear(value, category);
 
 }
+
 function compareToNorm(value, category) {
   if (category === "cows") {
     calculateNorm(value, averageData.cows, 'cowsNorm');
