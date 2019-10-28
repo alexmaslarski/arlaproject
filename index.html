@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Arla Yearly Report</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <aside id="nav-container">
+    <div class="logo">
+      <img src="img/arla-logo.svg" alt="Arla logo">
+    </div>
+    <nav>
+      <ul class="main-nav">
+        <li class="nav-item"><a class="nav-link" href="#profile-page" onclick="showPage('profile-page')"><img
+              class="icon" src="img/profile_icon.png" alt="">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="#report-page" onclick="showPage('report-page')"><img class="icon"
+              src="img/report_icon.png" alt="">Report</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><img class="icon" src="img/community_icon.png"
+              alt="">Community</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><img class="icon" src="img/advice_icon.png" alt="">Advice &
+            Ideas</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><img class="icon" src="img/help_icon.png" alt="">Help</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main>
+    <div class="page" id="profile-page">
+      <section id="profile-header">
+        <div id="profile-personal-info">
+          <ul>
+            <li>Rasmus Pedersen</li>
+            <li>CVR: 20948565</li>
+            <li>Ringvejsyd 23, Viby J</li>
+            <li>+45 29884456</li>
+            <li>r.petersen@gmail.com</li>
+          </ul>
+        </div>
+        <div id="profile-sust-score">
+          <h3>Your sustainability score:</h3>
+          <div class="score-container">
+            <div class="score">
+              <div id="total-score-element">
+                <img src="img/totalscore.png" alt="">
+                <h2>Total Score</h2>
+                <p id="total-score" class="total-score"></p>
+                <p>kg CO2 per kg milk</p>
+              </div>
+            </div>
+            <div class="score">
+              <div class="score-element">
+                <div class="score-icon"><img src="img/digestion.png" alt=""></div>
+
+                <div class="score-text">
+                  <h2>Digestion</h2>
+                  <p id="digestion-score" class="total-score"></p>
+                  <p>kg CO2 per kg milk</p>
+                </div>
+
+              </div>
+              <div class="score-element">
+                <div class="score-icon"><img src="img/importedfeed.png" alt=""></div>
+
+                <div class="score-text">
+                  <h2>Imported Feed</h2>
+                  <p id="imported-feed-score" class="total-score"></p>
+                  <p>kg CO2 per kg milk</p>
+                </div>
+
+              </div>
+            </div>
+            <div class="score">
+              <div class="score-element">
+                <div class="score-icon"><img src="img/electricity.png" alt=""></div>
+
+                <div class="score-text">
+                  <h2>Electricity & Heating</h2>
+                  <p id="electricity-score" class="total-score"></p>
+                  <p>kg CO2 per kg milk</p>
+                </div>
+
+              </div>
+              <div class="score-element">
+                <div class="score-icon"><img src="img/diesel.png" alt=""></div>
+
+                <div class="score-text">
+                  <h2>Diesel</h2>
+                  <p id="diesel-score" class="total-score"></p>
+                  <p>kg CO2 per kg milk</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="page-wrapper">
+        <div id="report-message">
+          <a href="#">CLICK TO FILL IN REPORT</a>
+          <div id="report-message-info">
+            <p>Last saved: 19/10/2019</p>
+            <p>Time left: 20 days</p>
+            <p>Questions answered: 20/100</p>
+          </div>
+
+        </div>
+
+
+        <ul id="profile-nav">
+
+          <li id="previous-reports-tab" data-link="previousReports" class="profilePage" onclick="showNavPage('previousReports')">
+            Previous Reports
+          </li>
+
+          <li id="statistics-tab" data-link="statistics" class="profilePage" onclick="showNavPage('statistics')">
+            Statistics
+          </li>
+
+          <li id="settings-tab" data-link="settings" class="profilePage" onclick="showNavPage('settings')">
+
+            Settings
+          </li>
+
+        </ul>
+        <!--End of #profile-nav-->
+
+        <section class="profileNavPage" id="previousReports">
+          <div>
+            <h2>Your performance based on the last 5 years</h2>
+          </div>
+          <div class="chart-container">
+            <canvas id="carbonFootprint"></canvas>
+          </div>
+
+        </section>
+        <section class="profileNavPage" id="statistics">a</section>
+        <section class="profileNavPage" id="settings">b</section>
+
+
+
+
+      </section>
+    </div>
+    <div class="page" id="report-page">
+      <div class="page-wrapper">
+        <section class="page-header">
+          <h2>REPORT 2019</h2>
+          <div id="report-description">
+            <h4>Fill your yearly Arla's report and build more sustainable world.</h4>
+            <p>You have no obligation to fill the whole survey at one time.
+              Just do not forget to click save button once you add some changes.
+              You will find your results after submitting the whole report. Thank you!</p>
+          </div>
+
+        </section>
+        <section id="report-body">
+          <form name="report">
+            <ul>
+              <li class="category" id="herd-category">
+                <div class="category-icon">
+                  <img src="img/importedfeed.png" alt="">
+                </div>
+                <div class="category-title">
+                  <h3>Herd</h3>
+                </div>
+                <div class="category-progress">
+                  <p>0/3</p>
+                </div>
+                <div class="category-arrow"><i class="arrow fas"></i></div>
+              </li>
+              <div class="questions-wrapper">
+                <div class="questions-info">
+                  <p>In this category you are going to find questions related to your herd</p>
+                  <a href="#">Read more about pollution emission reduction on our guidelines page.</a>
+                </div>
+                <div class="questions-holder">
+                  <div class="question">
+                    <p class="question-number">1.</p>
+                    <p class="question-text">How many cows do you have?
+                    </p>
+                    <input  id="numberCows" name="numberCows" type="number" placeholder="amount" required>
+                    <div class="compared" id="cowsLast">
+                      <p>Last Year</p>
+                    </div>
+                    <div class="compared" id="cowsNorm">
+                      <p>Norm</p>
+                    </div>
+                    <div>
+                      <i class="fas fa-info-circle"></i>
+                    </div>
+
+                  </div>
+                  <div class="question">
+                    <p class="question-number">2.</p>
+                    <p class="question-text">How much milk do you produce a year?
+                    </p>
+                    <input onchange="compare(this.value,'milkProduction')" id="milkProduction" name="milkProduction" type="number"placeholder="kg per cow" required>
+                    <div class="compared" id="milkLast">
+                      
+                    </div>
+                    <div class="compared" id="milkNorm">
+                      
+                    </div>
+                    <div>
+                      <i class="fas fa-info-circle"></i>
+                    </div>
+
+                  </div>
+                  <div class="question">
+                    <p class="question-number">3.</p>
+                    <p class="question-text">How many percent of dry matter do you produce a year?
+                    </p>
+                    <input onchange="compare(this.value,'selfSufficiency')" id="selfSufficiency" name="selfSufficiency" type="number" placeholder="% dry matter" required>
+                    <div class="compared" id="sufficiencyLast">
+                      
+                    </div>
+                    <div class="compared" id="sufficiencyNorm">
+                      
+                    </div>
+                    <div>
+                      <i class="fas fa-info-circle"></i>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+              <li class="category" id="herd-category">
+                <div class="category-icon">
+                  <img src="img/importedfeed.png" alt="">
+                </div>
+                <div class="category-title">
+                  <h3>Cows</h3>
+                </div>
+                <div class="category-progress">
+                  <p>0/1</p>
+                </div>
+                <div class="category-arrow"><i class="arrow fas fa-chevron-right"></i></div>
+              </li>
+              <div class="questions-wrapper">
+                <div class="questions-info">
+                  <p>In this category you are going to find questions related to your herd</p>
+                  <a href="#">Read more about pollution emission reduction on our guidelines page.</a>
+                </div>
+                <div class="questions-holder">
+                  <div class="question">
+                    <p class="question-number">4.</p>
+                    <p class="question-text">How many kg of dry matter did a cow consume per year?
+                    </p>
+                    <input onchange="compare(this.value,'feedConsumption')" id="feedConsumption" name="feedConsumption" type="number" placeholder="kg dry matter" required>
+                    <div class="compared" id="feedLast">
+                      
+                    </div>
+                    <div class="compared" id="feedNorm">
+                      
+                    </div>
+                    <div>
+                      <i class="fas fa-info-circle"></i>
+                    </div>
+
+                  </div>
+
+
+                </div>
+
+              </div>
+              <li class="category" id="herd-category">
+                <div class="category-icon">
+                  <img src="img/electricity.png" alt="">
+                </div>
+                <div class="category-title">
+                  <h3>Energy</h3>
+                </div>
+                <div class="category-progress">
+                  <p>0/2</p>
+                </div>
+                <div class="category-arrow"><i class="arrow fas fa-chevron-right"></i></div>
+              </li>
+              <div class="questions-wrapper">
+                <div class="questions-info">
+                  <p>In this category you are going to find questions related to your herd</p>
+                  <a href="#">Read more about pollution emission reduction on our guidelines page.</a>
+                </div>
+                <div class="questions-holder">
+                  <div class="question">
+                    <p class="question-number">5.</p>
+                    <p class="question-text">How much diesel do you use for a year?
+                    </p>
+                    <input onchange="compare(this.value,'diesel')" id="diesel" name="diesel" type="number" placeholder="litre" required>
+                    <div class="compared" id="dieselLast">
+                      
+                    </div>
+                    <div class="compared" id="dieselNorm">
+                      
+                    </div>
+                    <div>
+                      <i class="fas fa-info-circle"></i>
+                    </div>
+
+                  </div>
+                  <div class="question">
+                    <p class="question-number">6.</p>
+                    <p class="question-text">How much electricity do you use for a year?
+                    </p>
+                    <input onchange="compare(this.value,'electricity')" id="electricity" name="electricity" type="number" placeholder="kWh" required>
+                    <div class="compared" id="electricityLast">
+                      
+                    </div>
+                    <div class="compared" id="electricityNorm">
+                      
+                    </div>
+                    <div>
+                      <i class="fas fa-info-circle"></i>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </ul>
+          </form>
+
+        </section>
+        <p class="button" id="save-changes">Save changes</p>
+        
+        <p class="button" id="submit">Submit</p>
+      </div>
+
+      </ul>
+      </form>
+
+      </section>
+    </div>
+
+    </div>
+  </main>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+  <script src="js/firebase_config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
