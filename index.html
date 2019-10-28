@@ -111,25 +111,25 @@
 
         <div id="profile-nav">
 
-          <a id="previous-reports-tab" href="#previousReports" class="profilePage" onclick="showNavPage('previousReports')">
+          <div id="previous-reports-tab"  class="profilePage activeNav" onclick="showNavPage('previous-reports')" style="display:block">
 Previous Reports
-          </a>
 
-          <a id="statistics-tab" href="#statistics" class="profilePage" onclick="showNavPage('statistics')">
+</div>
+
+          <div id="statistics-tab"  class="profilePage" onclick="showNavPage('statistics')">
 
 
-            Statistics
-          </a>
+                      Statistics
 
-          <a id="settings-tab" href="#settings" class="profilePage" onclick="showNavPage('settings')">
+                    </div>
 
-            Settings
-          </a>
+                    <div id="settings-tab"  class="profilePage" onclick="showNavPage('settings')">
 
-        </div>
+                      Settings
+                    </div>
         <!--End of #profile-nav-->
 
-        <section class="profileNavPage" id="previousReports">
+        <section class="profileNavPage" id="previous-reports">
           <div>
             <h2>Your performance based on the last 5 years</h2>
           </div>

@@ -73,37 +73,26 @@ let hideAllNavPages = () => {
   }
 }
 // show page or tab
-let showNavPage = pageId => {
+function showNavPage(pageId){
   hideAllNavPages();
-  document.querySelector(`#${pageId}`).style.display = "block";
-  location.href = `#${pageId}`;
-  setActiveTabNav(pageId);
-  // showLoader(500);
-}
-// set default page
-let setDefaultNavPage = () => {
-  let page = 'previousReports';
-  if (location.hash) {
-    page = location.hash.slice(1);
-  }
-  showNavPage(page);
-}
-setDefaultNavPage();
-
-function setActiveTabNav(pageId) {
-  let pages = document.querySelectorAll("#profile-nav a");
-  for (let page of pages) {
-    if (`#${pageId}` === page.getAttribute("href")) {
-      page.classList.add("activeNav");
-
-    } else {
-      page.classList.remove("activeNav");
+  let tabs = document.querySelectorAll(".profilePage");
+  for (let tab of tabs){
+    if(tab.classList.contains('activeNav')){
+      tab.classList.remove('activeNav');
+      console.log('removed');
     }
+  };
+  document.querySelector(`#${pageId}`).style.display = "block";
+  document.querySelector(`#${pageId}-tab`).classList.add('activeNav');
 
-  }
 }
 
+function setDefaultNavPage(){
+  document.querySelector('#previous-reports').style.display = "block";
+}
 hideAllNavPages();
+
+setDefaultNavPage();
 
 
 //Chart
