@@ -108,9 +108,8 @@ hideAllNavPages();
 
 //Chart
 
-co nst _db = firebase.firestore();
+const _db = firebase.firestore();
 const _dataRef = _db.collection("output-data");
-const _outputRefNorthDenmark = _db.collection("output-data").doc("year").collection("north-denmark");
 let _sustainabilityData;
 
 
@@ -123,7 +122,7 @@ _dataRef.orderBy("year").onSnapshot(function (snapshotData) {
     _sustainabilityData.push(data);
   });
 
-
+appendRegions(_sustainabilityData);
   appendFootprint(_sustainabilityData);
   appendScores(_sustainabilityData);
 
@@ -174,3 +173,53 @@ function appendFootprint(sustainabilityData) {
 
 
 }
+
+
+function appendRegions(sustainabilityData) {
+  let regions = [];
+  let totalFootprint = [];
+  console.log(regions);
+  console.log(totalFootprint);
+
+
+for (let data of sustainabilityData) {
+  regions.push(data.region);
+  totalFootprint.push(data.totalFootprint);
+  }
+console.log(sustainabilityData);
+  let regionChart = document.querySelector('#regions');
+  let regionPieChart = new Chart(regionChart, {
+    type: 'pie',
+    options: {
+      title: {
+              display: true,
+              text: 'Custom Chart Title'
+          },
+      legend: {
+        position: 'bottom',
+      }
+    },
+    data: {
+      datasets: [{
+        data: totalFootprint,
+        label: 'kg CO2 per year',
+        fill: true,
+        borderColor: "#e755ba",
+        backgroundColor: [
+          "#e755ba",
+          "#e5e5e5",
+          "#006C3A"
+
+        ],
+
+        pointBackgroundColor: "#55bae7",
+        pointBorderColor: "#55bae7",
+        pointHoverBackgroundColor: "#55bae7",
+        pointHoverBorderColor: "#55bae7",
+      }],
+      labels: regions
+    }
+  });
+  console.log(regionPieChart);
+
+};
