@@ -344,8 +344,11 @@ cursor: pointer;
 /* Profile Charts */
 .chart-container{
     width: 60%;
-
+     margin-top: 30px;
 }
+
+
+
 /* Report page */
 
 #report-page .page-header>h2 {
