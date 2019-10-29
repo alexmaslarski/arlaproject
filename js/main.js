@@ -1,5 +1,14 @@
 "use strict";
 
+const _db = firebase.firestore();
+const _dataRef = _db.collection("output-data");
+const _dataRefAverage = _db.collection("industry-avg");
+const _dataRefInput = _db.collection("input-data");
+let _sustainabilityData;
+let averageData;
+let lastYearData;
+
+
 
 // Navigation
 let hideAllPages = () => {
@@ -36,32 +45,6 @@ function setActiveTab(pageId) {
     }
 
   }
-}
-
-/*
-let showLoader = (duration) => {
-    $("#splash").show();
-    setTimeout(function () {
-        $("#splash").hide();
-    }, duration);
-}
-setTimeout(() => {
-    $("#splash").hide();
-}, 1500);
-*/
-
-var acc = document.getElementsByClassName("category");
-
-for (let i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("activeCategory");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-  });
 }
 
 
@@ -102,13 +85,23 @@ function setActiveTabNav(pageId) {
 }
 
 
-//Chart
 
-const _db = firebase.firestore();
-const _dataRef = _db.collection("output-data");
-const _dataRefAverage = _db.collection("industry-avg");
-const _dataRefInput = _db.collection("input-data");
-let _sustainabilityData;
+
+
+// Category accordion
+var acc = document.getElementsByClassName("category");
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("activeCategory");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
 
 
 
@@ -126,6 +119,7 @@ _dataRef.orderBy("year").onSnapshot(function(snapshotData) {
 
 });
 
+// Update profile category scores
 function appendScores(sustainabilityData) {
 
   sustainabilityData.forEach(data => {
@@ -140,7 +134,7 @@ function appendScores(sustainabilityData) {
   })
 }
 
-
+// Create data for previous report chart
 function appendFootprint(sustainabilityData) {
   let totalCarbonFootprint = [];
   let years = [];
@@ -148,8 +142,6 @@ function appendFootprint(sustainabilityData) {
     totalCarbonFootprint.push(data.totalFootprint);
     years.push(data.year);
   });
-  console.log(years);
-  
 
   // generate chart
   Chart.defaults.global.defaultFontFamily = 'Roboto';
@@ -201,14 +193,11 @@ function appendFootprint(sustainabilityData) {
 }
 
 
-
+// Chart inside statistics
 function appendRegions(sustainabilityData) {
   let regions = [];
   let totalFootprint = [];
-  console.log(regions);
-  console.log(totalFootprint);
-
-
+ 
   for (let data of sustainabilityData) {
     regions.push(data.region);
     totalFootprint.push(data.totalFootprint);
@@ -261,31 +250,29 @@ hoverBackgroundColor: [
 
 
 // Input calculations
-let averageData;
+
 _dataRefAverage.onSnapshot(function(snapshotData) {
   snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
     averageData = doc.data(); // save the data in a variable
-    console.log(averageData);
 
   });
 
 });
-let lastYearData;
+
 _dataRefInput.onSnapshot(function(snapshotData) {
   snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
     lastYearData = doc.data(); // save the data in a variable
-    console.log(lastYearData);
 
   });
 
 });
-
+// Call both comparison functions
 function compare(value, category) {
   compareToNorm(value, category);
   compareToLastYear(value, category);
 
 }
-
+// Compare the input to the norm for each question
 function compareToNorm(value, category) {
   if (category === "cows") {
     calculateNorm(value, averageData.cows, 'cowsNorm', 'norm');
@@ -303,7 +290,7 @@ function compareToNorm(value, category) {
   }
 
 }
-
+// Compare the input to last year for each question
 function compareToLastYear(value, category) {
   if (lastYearData.year == 2018) {
     if (category === "cows") {
@@ -324,7 +311,7 @@ function compareToLastYear(value, category) {
 
 
 }
-
+// Calculate and display results
 function calculateNorm(value, norm, element, comparedTo) {
   let result = 100 - ((value / norm) * 100);
   if (result < 0) {

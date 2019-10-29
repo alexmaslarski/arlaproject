@@ -6,36 +6,42 @@
 
 @font-face {
     font-family: "Arla";
-    src: url("fonts/ArlaIF_W_Rg.woff");
+    src: url("fonts/ArlaIF_W_Rg.woff") format('woff'),
+     url('../fonts/ArlaIF_W_Rg.ttf') format('truetype');
 }
 
 @font-face {
     font-family: "Arla";
-    src: url("fonts/ArlaIF_W_Th.woff");
+    src: url("fonts/ArlaIF_W_Th.woff") format('woff'),
+    url('../fonts/ArlaIF_W_Th.ttf') format('truetype');
     font-weight: 100;
 }
 
 @font-face {
     font-family: "Arla";
-    src: url("fonts/ArlaIF_W_Lt.woff");
+    src: url("fonts/ArlaIF_W_Lt.woff") format('woff'),
+     url('../fonts/ArlaIF_W_Lt.ttf') format('truetype');
     font-weight: 300;
 }
 
 @font-face {
     font-family: "Arla";
-    src: url("fonts/ArlaIF_W_Bd.woff");
+    src: url("fonts/ArlaIF_W_Bd.woff") format('woff'),
+     url('../fonts/ArlaIF_W_Bd.ttf') format('truetype');
     font-weight: 600;
 }
 
 @font-face {
     font-family: "Arla";
-    src: url("fonts/ArlaIF_W_Blk.woff");
+    src: url("fonts/ArlaIF_W_Blk.woff") format('woff'),
+     url('../fonts/ArlaIF_W_Blk.ttf') format('truetype');
     font-weight: 700;
 }
 
 @font-face {
     font-family: "Arla";
-    src: url("fonts/ArlaIF_W_It.woff");
+    src: url("fonts/ArlaIF_W_It.woff") format('woff'),
+     url('../fonts/ArlaIF_W_It.ttf') format('truetype');
     font-style: italic, oblique;
 }
 
@@ -47,20 +53,24 @@ body {
     line-height: 1.6;
 
 }
-
+/* General */
 a {
     text-decoration: none;
 }
-
 ul {
     list-style: none;
 }
-
 img {
     border: 0;
     vertical-align: middle;
 }
-
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
+/* Navigation */
 #nav-container {
     position: fixed;
     width: 90px;
@@ -71,12 +81,7 @@ img {
     z-index: 99;
 
 }
-.red{
-    color: red;
-}
-.green{
-    color: green;
-}
+
 .logo {
     display: block;
     padding: 30px 0;
@@ -128,6 +133,10 @@ img {
   box-shadow: 7px 0 9px 0px rgba(0, 0, 0, 0.3);
 }
 
+
+/* MAIN AND PAGES */
+
+
 main {
     width: 100%;
     padding: 0 0 0 90px;
@@ -137,6 +146,8 @@ main {
     min-height: 100vh;
     background-color: white;
 }
+
+/* Profile Page */
 
 #profile-page {
     background-color: #f0f0f0;
@@ -245,6 +256,8 @@ main {
     font-size: .8em;
     color: black;
 }
+
+
 
 /* PROFILE BODY START */
 .page-wrapper {
@@ -386,6 +399,8 @@ cursor: pointer;
     margin-bottom: 10px;
 }
 
+/* Categories */
+
 .category {
     margin: 0 auto;
     display: flex;
@@ -443,6 +458,8 @@ cursor: pointer;
     transform: rotate(90deg);
     transition: .4s;
 }
+
+/* Questions */
 .questions-info{
     margin-top: 30px;
 }
@@ -484,6 +501,8 @@ cursor: pointer;
 .comparison-wrapper span{
     display: none;
 }
+
+/* Buttons */
 .button{
     color: white;
     background-color: green;
