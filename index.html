@@ -20,14 +20,16 @@
     <nav>
       <ul class="main-nav">
         <li class="nav-item"><a class="nav-link" href="#profile-page" onclick="showPage('profile-page')"><img
-              class="icon" src="img/profile_icon.png" alt="">Profile</a></li>
+              class="icon" src="img/profile_icon.png" alt="Profile link">Profile</a></li>
         <li class="nav-item"><a class="nav-link" href="#report-page" onclick="showPage('report-page')"><img class="icon"
-              src="img/report_icon.png" alt="">Report</a></li>
+              src="img/report_icon.png" alt=" Report link">Report</a></li>
         <li class="nav-item"><a class="nav-link" href="#"><img class="icon" src="img/community_icon.png"
-              alt="">Community</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><img class="icon" src="img/advice_icon.png" alt="">Advice &
+              alt="Community Link">Community</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><img class="icon" src="img/advice_icon.png"
+              alt="advice link">Advice &
             Ideas</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><img class="icon" src="img/help_icon.png" alt="">Help</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><img class="icon" src="img/help_icon.png"
+              alt="help link">Help</a></li>
       </ul>
     </nav>
   </aside>
@@ -35,17 +37,14 @@
     <div class="page" id="profile-page">
       <section id="profile-header">
         <div id="profile-personal-info">
-          
+
           <ul>
-            <div id="profile-personal">
             <li>Rasmus Pedersen</li>
             <li>CVR: 20948565</li>
             <li>Ringvejsyd 23, Viby J</li>
-            </div>
-            <div id="profile-contact">
             <li>+45 29884456</li>
             <li>r.petersen@gmail.com</li>
-          </div>
+
           </ul>
         </div>
         <div id="profile-sust-score">
@@ -53,7 +52,7 @@
           <div class="score-container">
             <div class="score">
               <div id="total-score-element">
-                <img src="img/totalscore.png" alt="">
+                <img src="img/totalscore.png" alt="total carbon footprint icon">
                 <h2>Total Score</h2>
                 <p id="total-score" class="total-score"></p>
                 <p>kg CO2 per kg milk</p>
@@ -61,7 +60,7 @@
             </div>
             <div class="score">
               <div class="score-element">
-                <div class="score-icon"><img src="img/digestion.png" alt=""></div>
+                <div class="score-icon"><img src="img/digestion.png" alt="digestion score icon"></div>
 
                 <div class="score-text">
                   <h2>Digestion</h2>
@@ -71,7 +70,7 @@
 
               </div>
               <div class="score-element">
-                <div class="score-icon"><img src="img/importedfeed.png" alt=""></div>
+                <div class="score-icon"><img src="img/importedfeed.png" alt=" imported feed score icon"></div>
 
                 <div class="score-text">
                   <h2>Imported Feed</h2>
@@ -83,7 +82,7 @@
             </div>
             <div class="score">
               <div class="score-element">
-                <div class="score-icon"><img src="img/electricity.png" alt=""></div>
+                <div class="score-icon"><img src="img/electricity.png" alt="energy score icon"></div>
 
                 <div class="score-text">
                   <h2>Electricity & Heating</h2>
@@ -93,7 +92,7 @@
 
               </div>
               <div class="score-element">
-                <div class="score-icon"><img src="img/diesel.png" alt=""></div>
+                <div class="score-icon"><img src="img/diesel.png" alt="diesel score icon"></div>
 
                 <div class="score-text">
                   <h2>Diesel</h2>
@@ -108,7 +107,8 @@
       </section>
       <section class="page-wrapper">
         <div id="report-message">
-          <a href="#report-page" onclick="showPage('report-page')"><span>Click to fill in</span>Arlagarden Plus report</a>
+          <a href="#report-page" onclick="showPage('report-page')"><span>Click to fill in</span>Arlagarden Plus
+            report</a>
           <div id="report-message-info">
             <p>Last saved: 19/10/2019</p>
             <p>Time left: 20 days</p>
@@ -120,7 +120,8 @@
 
         <ul id="profile-nav">
 
-          <li id="previous-reports-tab" data-link="previousReports" class="profilePage" onclick="showNavPage('previousReports')">
+          <li id="previous-reports-tab" data-link="previousReports" class="profilePage"
+            onclick="showNavPage('previousReports')">
             Previous Reports
           </li>
 
@@ -138,7 +139,7 @@
 
         <section class="profileNavPage" id="previousReports">
           <div>
-            
+
           </div>
           <div class="chart-container">
             <canvas id="carbonFootprint"></canvas>
@@ -175,7 +176,7 @@
             <ul>
               <li class="category" id="herd-category">
                 <div class="category-icon">
-                  <img src="img/importedfeed.png" alt="">
+                  <img src="img/cow.png" alt="Herd category icon">
                 </div>
                 <div class="category-title">
                   <h3>Herd</h3>
@@ -195,7 +196,7 @@
                     <p class="question-number">1.</p>
                     <p class="question-text">How many cows do you have?
                     </p>
-                    <input  id="numberCows" name="numberCows" type="number" placeholder="amount" required>
+                    <input id="numberCows" name="numberCows" type="number" placeholder="amount" required>
                     <div class="comparison-wrapper">
                       <div class="compared" id="cowsLast">
                         <p>Last Year</p>
@@ -204,7 +205,7 @@
                         <p>Norm</p>
                       </div>
                     </div>
-                    
+
                     <div class="info-help">
                       <i class="fas fa-info-circle"></i>
                     </div>
@@ -214,14 +215,17 @@
                     <p class="question-number">2.</p>
                     <p class="question-text">How much milk do you produce a year?
                     </p>
-                    <input onchange="compare(this.value,'milkProduction')" id="milkProduction" name="milkProduction" type="number"placeholder="kg per cow" required>
-                    <div class="comparison-wrapper"><div class="compared" id="milkLast">
+                    <input onchange="compare(this.value, 'milkProduction')" id="milkProduction" name="milkProduction"
+                      type="number" placeholder="kg per cow" required>
+                    <div class="comparison-wrapper">
+                      <div class="compared" id="milkLast">
 
+                      </div>
+                      <div class="compared" id="milkNorm">
+
+                      </div>
                     </div>
-                    <div class="compared" id="milkNorm">
 
-                    </div></div>
-                    
                     <div class="info-help">
                       <i class="fas fa-info-circle"></i>
                     </div>
@@ -232,16 +236,17 @@
                     <p class="question-number">3.</p>
                     <p class="question-text">How many percent of dry matter do you produce a year?
                     </p>
-                    <input onchange="compare(this.value,'selfSufficiency')" id="selfSufficiency" name="selfSufficiency" type="number" placeholder="% dry matter" required>
+                    <input onchange="compare(this.value,'selfSufficiency')" id="selfSufficiency" name="selfSufficiency"
+                      type="number" placeholder="% dry matter" required>
                     <div class="comparison-wrapper">
                       <div class="compared" id="sufficiencyLast">
 
                       </div>
                       <div class="compared" id="sufficiencyNorm">
-  
+
                       </div>
                     </div>
-                    
+
                     <div class="info-help">
                       <i class="fas fa-info-circle"></i>
                     </div>
@@ -250,10 +255,10 @@
                 </div>
 
               </div>
-              <li class="category" id="herd-category">
+              <li class="category" id="cow-category">
 
                 <div class="category-icon">
-                    <img src="img/importedfeed.png" alt="">
+                  <img src="img/importedfeed.png" alt="Cows category icon">
                 </div>
                 <div class="category-title">
                   <h3>Cows</h3>
@@ -273,16 +278,17 @@
                     <p class="question-number">4.</p>
                     <p class="question-text">How many kg of dry matter did a cow consume per year?
                     </p>
-                    <input onchange="compare(this.value,'feedConsumption')" id="feedConsumption" name="feedConsumption" type="number" placeholder="kg dry matter" required>
+                    <input onchange="compare(this.value,'feedConsumption')" id="feedConsumption" name="feedConsumption"
+                      type="number" placeholder="kg dry matter" required>
                     <div class="comparison-wrapper">
                       <div class="compared" id="feedLast">
 
                       </div>
                       <div class="compared" id="feedNorm">
-  
+
                       </div>
                     </div>
-                    
+
                     <div class="info-help">
                       <i class="fas fa-info-circle"></i>
                     </div>
@@ -293,9 +299,9 @@
                 </div>
 
               </div>
-              <li class="category" id="herd-category">
+              <li class="category" id="energy-category">
                 <div class="category-icon">
-                  <img src="img/electricity.png" alt="">
+                  <img src="img/electricity.png" alt="energy category icon">
                 </div>
                 <div class="category-title">
                   <h3>Energy</h3>
@@ -315,16 +321,17 @@
                     <p class="question-number">5.</p>
                     <p class="question-text">How much diesel do you use for a year?
                     </p>
-                    <input onchange="compare(this.value,'diesel')" id="diesel" name="diesel" type="number" placeholder="litre" required>
+                    <input onchange="compare(this.value,'diesel')" id="diesel" name="diesel" type="number"
+                      placeholder="litre" required>
                     <div class="comparison-wrapper">
                       <div class="compared" id="dieselLast">
 
                       </div>
                       <div class="compared" id="dieselNorm">
-  
+
                       </div>
                     </div>
-                    
+
                     <div class="info-help">
                       <i class="fas fa-info-circle"></i>
                     </div>
@@ -334,16 +341,17 @@
                     <p class="question-number">6.</p>
                     <p class="question-text">How much electricity do you use for a year?
                     </p>
-                    <input onchange="compare(this.value,'electricity')" id="electricity" name="electricity" type="number" placeholder="kWh" required>
+                    <input onchange="compare(this.value,'electricity')" id="electricity" name="electricity"
+                      type="number" placeholder="kWh" required>
                     <div class="comparison-wrapper">
                       <div class="compared" id="electricityLast">
 
                       </div>
                       <div class="compared" id="electricityNorm">
-  
+
                       </div>
                     </div>
-                    
+
                     <div>
                       <i class="fas fa-info-circle"></i>
                     </div>
@@ -354,8 +362,8 @@
 
               </div>
 
-            </ul>
-          </form>
+           
+          
 
         </section>
         <p class="button" id="save-changes">Save <span>changes</span></p>
@@ -366,8 +374,8 @@
       </ul>
       </form>
 
-      </section>
-    </div>
+      
+    
 
     </div>
   </main>

@@ -421,9 +421,17 @@ cursor: pointer;
     transition: max-height 0.2s ease-out;
 
 }
+#herd-category>.category-icon{
+    background-color: #acf1a4;
+}
+#cow-category>.category-icon{
+    background-color: #ebef7f;
+}
+#energy-category>.category-icon{
+    background-color: #ac97c7;
+}
 .category-icon {
     width: 15%;
-    background-color: green;
     text-align: center;
 }
 
