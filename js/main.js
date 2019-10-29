@@ -158,7 +158,7 @@ function appendFootprint(sustainabilityData) {
     options: {
       title: {
         display: true,
-        text: 'Custom Chart Title',
+        text: 'Kilograms of CO2 per year',
         fontSize: 20,
       },
       legend: false,
@@ -171,7 +171,9 @@ function appendFootprint(sustainabilityData) {
         hoverBackgroundColor: [
           "rgba(075, 177, 049, .9)",
           "rgba(255, 204, 050, .9)",
-          "rgba(060, 196, 235, .9)"
+          "rgba(060, 196, 235, .9)",
+          "rgba(125, 093,168 , .9)",
+          "rgba(248, 053, 060, .9)",
         ],
 
         borderWidth: 2.5,
@@ -183,12 +185,11 @@ function appendFootprint(sustainabilityData) {
         backgroundColor: [
           "rgba(075, 177, 049, .6)",
           "rgba(255, 204, 050, .6)",
-          "rgba(060, 196, 235, .6)"
+          "rgba(060, 196, 235, .6)",
+          "rgba(125, 093,168 , .6)",
+          "rgba(248, 053, 060, .6)",
         ],
-        pointBackgroundColor: "#55bae7",
-        pointBorderColor: "#55bae7",
-        pointHoverBackgroundColor: "#55bae7",
-        pointHoverBorderColor: "#55bae7",
+
       }],
       labels: years
     }
@@ -217,10 +218,11 @@ function appendRegions(sustainabilityData) {
     options: {
       title: {
         display: true,
-        text: 'Custom Chart Title'
+        text: 'Kilograms of CO2 per region',
+          fontSize: 20,
       },
       legend: {
-        position: 'bottom',
+        position: 'right',
       }
     },
     data: {
@@ -228,18 +230,23 @@ function appendRegions(sustainabilityData) {
         data: totalFootprint,
         label: 'kg CO2 per year',
         fill: true,
-
+hoverBackgroundColor: [
+  "rgba(125, 093,168 , 1)",
+  "rgba(248, 053, 060, 1)",
+  "rgba(255, 126, 005, 1)",
+  "rgba(075, 177, 049, 1)",
+  "rgba(255, 204, 050, 1)",
+],
         backgroundColor: [
-          "rgba()",
-          "#f8353c",
-          "#ff7e05"
+          "rgba(125, 093,168 , .7)",
+          "rgba(248, 053, 060, .7)",
+          "rgba(255, 126, 005, .7)",
+          "rgba(075, 177, 049, .7)",
+          "rgba(255, 204, 050, .7)",
 
         ],
 
-        pointBackgroundColor: "#55bae7",
-        pointBorderColor: "#55bae7",
-        pointHoverBackgroundColor: "#55bae7",
-        pointHoverBorderColor: "#55bae7",
+
       }],
       labels: regions
     }
