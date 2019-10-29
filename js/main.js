@@ -148,6 +148,8 @@ function appendFootprint(sustainabilityData) {
     totalCarbonFootprint.push(data.totalFootprint);
     years.push(data.year);
   });
+  console.log(years);
+  
 
   // generate chart
   Chart.defaults.global.defaultFontFamily = 'Roboto';
@@ -158,7 +160,7 @@ function appendFootprint(sustainabilityData) {
     options: {
       title: {
         display: true,
-        text: 'Custom Chart Title',
+        text: 'Carbon footprint for the last 5 years',
         fontSize: 20,
       },
       legend: false,
@@ -279,20 +281,18 @@ function compare(value, category) {
 
 function compareToNorm(value, category) {
   if (category === "cows") {
-    calculateNorm(value, averageData.cows, 'cowsNorm');
+    calculateNorm(value, averageData.cows, 'cowsNorm', 'norm');
     console.log(100 - ((value / averageData.cows) * 100));
-
-
   } else if (category === "milkProduction") {
-    calculateNorm(value, averageData.milkProduction, 'milkNorm');
+    calculateNorm(value, averageData.milkProduction, 'milkNorm', 'norm');
   } else if (category === "selfSufficiency") {
-    calculateNorm(value, averageData.milkProduction, 'sufficiencyNorm');
+    calculateNorm(value, averageData.milkProduction, 'sufficiencyNorm', 'norm');
   } else if (category === "feedConsumption") {
-    calculateNorm(value, averageData.milkProduction, 'feedNorm');
+    calculateNorm(value, averageData.milkProduction, 'feedNorm', 'norm');
   } else if (category === "diesel") {
-    calculateNorm(value, averageData.milkProduction, 'dieselNorm');
+    calculateNorm(value, averageData.milkProduction, 'dieselNorm', 'norm');
   } else if (category === "electricity") {
-    calculateNorm(value, averageData.milkProduction, 'electricityNorm');
+    calculateNorm(value, averageData.milkProduction, 'electricityNorm', 'norm');
   }
 
 }
@@ -300,38 +300,42 @@ function compareToNorm(value, category) {
 function compareToLastYear(value, category) {
   if (lastYearData.year == 2018) {
     if (category === "cows") {
-      calculateNorm(value, lastYearData.cows, 'cowsLast');
+      calculateNorm(value, lastYearData.cows, 'cowsLast', 'last year');
       console.log(100 - ((value / lastYearData.cows) * 100));
     } else if (category === "milkProduction") {
-      calculateNorm(value, lastYearData.milkProduction, 'milkLast');
+      calculateNorm(value, lastYearData.milkProduction, 'milkLast', 'last year');
     } else if (category === "selfSufficiency") {
-      calculateNorm(value, lastYearData.milkProduction, 'sufficiencyLast');
+      calculateNorm(value, lastYearData.milkProduction, 'sufficiencyLast', 'last year');
     } else if (category === "feedConsumption") {
-      calculateNorm(value, lastYearData.milkProduction, 'feedLast');
+      calculateNorm(value, lastYearData.milkProduction, 'feedLast', 'last year');
     } else if (category === "diesel") {
-      calculateNorm(value, lastYearData.milkProduction, 'dieselLast');
+      calculateNorm(value, lastYearData.milkProduction, 'dieselLast', 'last year');
     } else if (category === "electricity") {
-      calculateNorm(value, lastYearData.milkProduction, 'electricityLast');
+      calculateNorm(value, lastYearData.milkProduction, 'electricityLast', 'last year');
     }
   }
 
 
 }
 
-function calculateNorm(value, norm, element) {
+function calculateNorm(value, norm, element, comparedTo) {
   let result = 100 - ((value / norm) * 100);
   if (result < 0) {
     document.querySelector(`#${element}`).innerHTML = `
+    <span class="value-description">Compared to ${comparedTo}</span>
 <i class="fas fa-long-arrow-alt-up red"></i>
 <p>${Math.abs(result).toFixed(2)}%</p>
+
 `
   } else if (result > 0) {
     document.querySelector(`#${element}`).innerHTML = `
+    <span class="value-description">Compared to ${comparedTo}</span>
 <i class="fas fa-long-arrow-alt-down green"></i>
 <p>${Math.abs(result).toFixed(2)}%</p>
 `
   } else if (result == 0) {
     document.querySelector(`#${element}`).innerHTML = `
+    <span class="value-description">Compared to ${comparedTo}</span>
     <i class="fas fa-equals"></i>
     <p>${Math.abs(result).toFixed(2)}%</p>
     `
