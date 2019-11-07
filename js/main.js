@@ -134,6 +134,7 @@ function appendScores(sustainabilityData) {
   })
 }
 
+
 // Create data for previous report chart
 function appendFootprint(sustainabilityData) {
   let totalCarbonFootprint = [];
@@ -197,7 +198,7 @@ function appendFootprint(sustainabilityData) {
 function appendRegions(sustainabilityData) {
   let regions = [];
   let totalFootprint = [];
- 
+
   for (let data of sustainabilityData) {
     regions.push(data.region);
     totalFootprint.push(data.totalFootprint);
@@ -274,38 +275,32 @@ function compare(value, category) {
 }
 // Compare the input to the norm for each question
 function compareToNorm(value, category) {
-  if (category === "cows") {
-    calculateNorm(value, averageData.cows, 'cowsNorm', 'norm');
-    console.log(100 - ((value / averageData.cows) * 100));
-  } else if (category === "milkProduction") {
+  if (category === "milkProduction") {
     calculateNorm(value, averageData.milkProduction, 'milkNorm', 'norm');
   } else if (category === "selfSufficiency") {
-    calculateNorm(value, averageData.milkProduction, 'sufficiencyNorm', 'norm');
+    calculateNorm(value, averageData.selfSufficiency, 'sufficiencyNorm', 'norm');
   } else if (category === "feedConsumption") {
-    calculateNorm(value, averageData.milkProduction, 'feedNorm', 'norm');
+    calculateNorm(value, averageData.feedConsumption, 'feedNorm', 'norm');
   } else if (category === "diesel") {
-    calculateNorm(value, averageData.milkProduction, 'dieselNorm', 'norm');
+    calculateNorm(value, averageData.diesel, 'dieselNorm', 'norm');
   } else if (category === "electricity") {
-    calculateNorm(value, averageData.milkProduction, 'electricityNorm', 'norm');
+    calculateNorm(value, averageData.electricity, 'electricityNorm', 'norm');
   }
 
 }
 // Compare the input to last year for each question
 function compareToLastYear(value, category) {
   if (lastYearData.year == 2018) {
-    if (category === "cows") {
-      calculateNorm(value, lastYearData.cows, 'cowsLast', 'last year');
-      console.log(100 - ((value / lastYearData.cows) * 100));
-    } else if (category === "milkProduction") {
+    if (category === "milkProduction") {
       calculateNorm(value, lastYearData.milkProduction, 'milkLast', 'last year');
     } else if (category === "selfSufficiency") {
-      calculateNorm(value, lastYearData.milkProduction, 'sufficiencyLast', 'last year');
+      calculateNorm(value, lastYearData.selfSufficiency, 'sufficiencyLast', 'last year');
     } else if (category === "feedConsumption") {
-      calculateNorm(value, lastYearData.milkProduction, 'feedLast', 'last year');
+      calculateNorm(value, lastYearData.feedConsumption, 'feedLast', 'last year');
     } else if (category === "diesel") {
-      calculateNorm(value, lastYearData.milkProduction, 'dieselLast', 'last year');
+      calculateNorm(value, lastYearData.diesel, 'dieselLast', 'last year');
     } else if (category === "electricity") {
-      calculateNorm(value, lastYearData.milkProduction, 'electricityLast', 'last year');
+      calculateNorm(value, lastYearData.electricity, 'electricityLast', 'last year');
     }
   }
 

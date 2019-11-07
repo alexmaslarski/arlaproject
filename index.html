@@ -215,7 +215,7 @@
                     <p class="question-number">2.</p>
                     <p class="question-text">How much milk do you produce a year?
                     </p>
-                    <input onchange="compare(this.value, 'milkProduction')" id="milkProduction" name="milkProduction"
+                    <input onchange="compare(this.value, this.id)" id="milkProduction" name="milkProduction"
                       type="number" placeholder="kg per cow" required>
                     <div class="comparison-wrapper">
                       <div class="compared" id="milkLast">
@@ -236,7 +236,7 @@
                     <p class="question-number">3.</p>
                     <p class="question-text">How many percent of dry matter do you produce a year?
                     </p>
-                    <input onchange="compare(this.value,'selfSufficiency')" id="selfSufficiency" name="selfSufficiency"
+                    <input onchange="compare(this.value, this.id)" id="selfSufficiency" name="selfSufficiency"
                       type="number" placeholder="% dry matter" required>
                     <div class="comparison-wrapper">
                       <div class="compared" id="sufficiencyLast">
@@ -278,7 +278,7 @@
                     <p class="question-number">4.</p>
                     <p class="question-text">How many kg of dry matter did a cow consume per year?
                     </p>
-                    <input onchange="compare(this.value,'feedConsumption')" id="feedConsumption" name="feedConsumption"
+                    <input onchange="compare(this.value, this.id)" id="feedConsumption" name="feedConsumption"
                       type="number" placeholder="kg dry matter" required>
                     <div class="comparison-wrapper">
                       <div class="compared" id="feedLast">
@@ -321,7 +321,7 @@
                     <p class="question-number">5.</p>
                     <p class="question-text">How much diesel do you use for a year?
                     </p>
-                    <input onchange="compare(this.value,'diesel')" id="diesel" name="diesel" type="number"
+                    <input onchange="compare(this.value, this.id)" id="diesel" name="diesel" type="number"
                       placeholder="litre" required>
                     <div class="comparison-wrapper">
                       <div class="compared" id="dieselLast">
@@ -341,7 +341,7 @@
                     <p class="question-number">6.</p>
                     <p class="question-text">How much electricity do you use for a year?
                     </p>
-                    <input onchange="compare(this.value,'electricity')" id="electricity" name="electricity"
+                    <input onchange="compare(this.value, this.id)" id="electricity" name="electricity"
                       type="number" placeholder="kWh" required>
                     <div class="comparison-wrapper">
                       <div class="compared" id="electricityLast">
@@ -362,8 +362,8 @@
 
               </div>
 
-           
-          
+
+
 
         </section>
         <p class="button" id="save-changes">Save <span>changes</span></p>
@@ -374,8 +374,8 @@
       </ul>
       </form>
 
-      
-    
+
+
 
     </div>
   </main>
